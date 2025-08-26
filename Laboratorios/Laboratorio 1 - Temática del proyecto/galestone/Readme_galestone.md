@@ -9,6 +9,8 @@ En esta carpeta se comparte un avance inicial de código basado en el artículo:
     Se replican los resultados del artículo, obteniendo las mejores métricas para el modelo XGBoosting.
 - **Optimización de hiperparámetros:**  
     Se utiliza Optuna para optimizar los hiperparámetros, logrando un mayor número de estimadores y un learning rate más bajo, lo que mejora las métricas principales de *accuracy* y *AUC*.
+- **Interpretabilidad:**
+    Se incluye la interpretabilidad del modelo, usando SHAP para entender qué variables (a parte del análisis de covarianza del ANOVA) son las que más influyeron en el entrenamiento del modelo para la toma de decisiones.
 
 ### Archivos incluidos
 
