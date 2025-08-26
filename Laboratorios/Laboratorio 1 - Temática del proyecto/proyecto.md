@@ -82,11 +82,27 @@ Dentro de los casos de aplicación de la BIE para el alcance del proyecto, se pr
 <h4 id="calculos_1">1) <b>Detección Temprana de Colelitiasis:</b></h4>
 <div style="text-align: justify; text-indent: 40px;">
 Es una de las enfermedades digestivas más comunes, con alta prevalencia (6% de la población mundial), teniendo América del Sur la prevalencia combinada más alta, con un 11,2% <a href="#ref1">[ref]</a>. Es de especial interés el diagnóstico pre clínico o de etapas tempranas de la enfermedad, debido a su alta incidencia, así como a la poca sintomatología que presentan los pacientes en estadíos tempranos.
+</div>
 
+![imagen_2](Imagenes/imagen_2.jpg)
+
+<div style="text-align: center;">
+<i>Imágen 2: Distribución mundial de prevalencia de cálculos biliares, tomada de:  <a href="#ref1">[ref]</a></i> 
+<div>
+
+<div style="text-align: justify;">
 El diagnóstico estándar depende de la ecografía abdominal, una técnica no siempre disponible para un cribado masivo. Investigaciones recientes, como el estudio "Early prediction of gallstone disease with a machine learning-based method from bioimpedance and laboratory data", han revelado que las alteraciones metabólicas sistémicas que conducen a la formación de cálculos biliares modifican las propiedades eléctricas del cuerpo de una manera que la BIE puede detectar <a href="#ref1">[ref]</a>
 </div>
 
+![imagen_3](Imagenes/imagen_3.jpeg)
+
+<div style="text-align: center;">
+<i>Imágen 3: Comparación de precisión de los algoritmos de ML para predicción de cálculos biliares, tomada de:  <a href="#ref1">[ref]</a></i> 
+</div>
+
+<div style="text-align: justify;">
 <h4 id="ic_1">2) <b>Monitoreo de Insuficiencia cardíaca (IC):</b></h4>
+</div>
 
 <div style="text-align: justify; text-indent: 40px;">
 Es un síndrome clínico complejo y progresivo, que afecta a más de 64 millones de personas en todo el mundo, y representa una de las principales causas de hospitalización en adultos mayores, suponiendo una tasa de 50% de mortalidad en los 5 primeros años desde el diagnóstico <a href="#ref1">[ref]</a>. En el Perú, esta condición constituye una de las principales causas de ingreso en servicios de cardiología en pacientes de la tercera edad, y representando hasta un 7.2% de mortalidad intrahospitalaria en hospitales referentes nacionales como el hospital Edgardo Rebagliati <a href="#ref1">[ref]</a>.
@@ -95,7 +111,7 @@ Uno de los principales desafíos en el manejo crónico de la IC es la prevenció
 </div>
 <br>
 
-
+<div style="text-align: justify;">
 <h3 id="objetivos_1"><b>Objetivos a alcanzar:</b></h3>
 
 <ol>
@@ -269,7 +285,7 @@ Clasificación de emociones con ECG y hardware de bajo costo para la detección 
 
 <h3 id="problematica_2"><b>Problemática a abordar:</b></h3>
 <div style="text-align: justify;">
-La depresión constituye actualmente uno de los principales problemas de salud pública en el Perú. Solo en el año 2024, los establecimientos del Ministerio de Salud (Minsa) atendieron 256 563 casos de depresión, de los cuales el 75 % correspondieron a mujeres. Este trastorno afecta principalmente a adultos (41.11 %) y jóvenes (26.79 %), además de un elevado riesgo de suicidio en casos graves. A pesar de su alta prevalencia, la detección temprana de la depresión sigue siendo un desafío, ya que depende de cuestionarios clínicos y de la expresión verbal de síntomas, lo que muchas veces retrasa el diagnóstico por estigmas sociales o falta de acceso a atención especializada <a href="#ref16">[1]</a>. En este contexto, las señales biomédicas, como el electrocardiograma (ECG), han demostrado ser sensibles a las variaciones emocionales y podrían convertirse en herramientas objetivas y complementarias para la identificación temprana de estados emocionales alterados asociados a la depresión.
+La depresión constituye actualmente uno de los principales problemas de salud pública en el Perú. Solo en el año 2024, los establecimientos del Ministerio de Salud (Minsa) atendieron 256 563 casos de depresión, de los cuales el 75 % correspondieron a mujeres. Este trastorno afecta principalmente a adultos (41.11 %) y jóvenes (26.79 %), además de un elevado riesgo de suicidio en casos graves. A pesar de su alta prevalencia, la detección temprana de la depresión sigue siendo un desafío, ya que depende de cuestionarios clínicos y de la expresión verbal de síntomas, lo que muchas veces retrasa el diagnóstico por estigmas sociales o falta de acceso a atención especializada <a href="#ref16">[16]</a>. En este contexto, las señales biomédicas, como el electrocardiograma (ECG), han demostrado ser sensibles a las variaciones emocionales y podrían convertirse en herramientas objetivas y complementarias para la identificación temprana de estados emocionales alterados asociados a la depresión.
 </div>
 
 <h3 id="objetivos_2"><b>Objetivos a alcanzar:</b></h3>
@@ -372,10 +388,10 @@ A continuación se detallan los siguientes materiales a nivel de hardware y soft
         </li>
     </ul>
     <div style="text-align: justify;">
-    En el artículo de Hasnul et al. (2021), se realiza una comparación mediante la siguiente tabla a diversos Datasets usados comúnmente en este tipo de estudios <a href="#ref17">[2]</a>.
+    En el artículo de Hasnul et al. (2021), se realiza una comparación mediante la siguiente tabla a diversos Datasets usados comúnmente en este tipo de estudios <a href="#ref17">[17]</a>.
     </div>
     <div style="text-align: center;">
-        ![Tabla comparativa de Datasets de emociones](path/a/tu/imagen1.png)
+        ![Tabla comparativa de Datasets de emociones](/Imagenes/tabla_1.jpg)
         <br><i>Tabla 1: Comparación de datasets para reconocimiento de emociones.</i>
     </div>
   </li>
@@ -383,7 +399,7 @@ A continuación se detallan los siguientes materiales a nivel de hardware y soft
 
 <h3 id="estado_del_arte_2"><b>Estado del arte:</b></h3>
 <div style="text-align: justify;">
-El estudio de Patil et al. (2023) implementó un sistema embebido de bajo costo para la detección en tiempo real de las emociones. En su estudio emplearon un sensor ECG AD8232 y un sensor de temperatura LM35, ambos conectados a una placa Arduino. En cuanto a la metodología, se trabajó con 10 voluntarios a quienes se les indujeron distintas emociones mediante estímulos audiovisuales, mientras que las señales de ECG eran registradas y preprocesadas para eliminar ruido y artefactos. Posteriormente, se calcularon los intervalos RR como características principales del ECG y, junto con la temperatura corporal, se usaron para entrenar y validar dos modelos de machine learning: Support Vector Machine (SVM) y Naive Bayes, apoyándose además en el dataset WESAD. En términos de desempeño global, el clasificador SVM mostró una exactitud superior, alcanzando un 98%, junto con un Hamming Loss de 0.0197 y el segundo modelo que fue de Naive Bayes obtuvo un 96% de precisión y un Hamming Loss más alto (0.042).Por lo tanto , el modelo de SVM demostró ser mejor, con menos pérdidas y mayor precisión <a href="#ref19">[4]</a>.
+El estudio de Patil et al. (2023) implementó un sistema embebido de bajo costo para la detección en tiempo real de las emociones. En su estudio emplearon un sensor ECG AD8232 y un sensor de temperatura LM35, ambos conectados a una placa Arduino. En cuanto a la metodología, se trabajó con 10 voluntarios a quienes se les indujeron distintas emociones mediante estímulos audiovisuales, mientras que las señales de ECG eran registradas y preprocesadas para eliminar ruido y artefactos. Posteriormente, se calcularon los intervalos RR como características principales del ECG y, junto con la temperatura corporal, se usaron para entrenar y validar dos modelos de machine learning: Support Vector Machine (SVM) y Naive Bayes, apoyándose además en el dataset WESAD. En términos de desempeño global, el clasificador SVM mostró una exactitud superior, alcanzando un 98%, junto con un Hamming Loss de 0.0197 y el segundo modelo que fue de Naive Bayes obtuvo un 96% de precisión y un Hamming Loss más alto (0.042).Por lo tanto , el modelo de SVM demostró ser mejor, con menos pérdidas y mayor precisión <a href="#ref18">[18]</a>.
 </div>
 <div style="text-align: center;">
     ![Diagrama del sistema de Patil et al.](path/a/tu/imagen2.png)
@@ -391,7 +407,7 @@ El estudio de Patil et al. (2023) implementó un sistema embebido de bajo costo 
 </div>
 <br>
 <div style="text-align: justify;">
-El estudio de Wang et al. (2023)  propone un método denominado HRV Emotion Recognition (HER) que aprovecha la información local de la variabilidad de la frecuencia cardiaca (HRV) derivada del ECG. En su investigación empleó el dataset DREAMER. Para el preprocesamiento, se aplicó un filtro basado en wavelets con el fin de eliminar ruido y conservar los picos R de los ECG, a partir de los cuales se calcularon los intervalos RR y se obtuvieron las señales HRV. Posteriormente, se introdujo la técnica de Amplitude Level Quantization (ALQ), que analiza patrones locales en diferentes bandas de frecuencia de la HRV, complementada con el método Emotion Quantification Analysis (EQA) para mapear las emociones en el espacio bidimensional de valencia-arousal. Finalmente, estas características fueron clasificadas mediante un modelo de regresión logística (LR). En cuanto al desempeño, el modelo HER alcanzó una exactitud promedio de 84.3% en la clasificación de 17 emociones, superando a modelos comparativos como PETSFCNN, LSTM-CNN y Wave-Scatter. Además, emociones como tristeza, pasión, esperanza, miedo, disgusto, confianza y relajación lograron precisiones superiores al 90%. Se comprobó también que el preprocesamiento de filtrado era fundamental, ya que sin él la exactitud descendía a  80.4% <a href="#ref20">[5]</a>.
+El estudio de Wang et al. (2023)  propone un método denominado HRV Emotion Recognition (HER) que aprovecha la información local de la variabilidad de la frecuencia cardiaca (HRV) derivada del ECG. En su investigación empleó el dataset DREAMER. Para el preprocesamiento, se aplicó un filtro basado en wavelets con el fin de eliminar ruido y conservar los picos R de los ECG, a partir de los cuales se calcularon los intervalos RR y se obtuvieron las señales HRV. Posteriormente, se introdujo la técnica de Amplitude Level Quantization (ALQ), que analiza patrones locales en diferentes bandas de frecuencia de la HRV, complementada con el método Emotion Quantification Analysis (EQA) para mapear las emociones en el espacio bidimensional de valencia-arousal. Finalmente, estas características fueron clasificadas mediante un modelo de regresión logística (LR). En cuanto al desempeño, el modelo HER alcanzó una exactitud promedio de 84.3% en la clasificación de 17 emociones, superando a modelos comparativos como PETSFCNN, LSTM-CNN y Wave-Scatter. Además, emociones como tristeza, pasión, esperanza, miedo, disgusto, confianza y relajación lograron precisiones superiores al 90%. Se comprobó también que el preprocesamiento de filtrado era fundamental, ya que sin él la exactitud descendía a  80.4% <a href="#ref19">[19]</a>.
 </div>
 <div style="text-align: justify;">
 La Figura 2 ilustra el flujo del sistema propuesto para el reconocimiento de emociones a partir de ECG: En primer lugar se realiza el preprocesamiento de la señal con la detección de picos R y el cálculo de secuencias HRV; luego, en la etapa de extracción de características, se aplica una cuantificación por amplitud y generación de reglas junto con la minería de patrones basados en reglas; finalmente, estas características alimentan al modelo clasificador de múltiples emociones.
@@ -431,9 +447,9 @@ La Figura 3 muestra la matriz de confusión del modelo HER. Se observa un alto d
   <li id="ref15">Referencia 15 para Opción 1...</li>
   <li id="ref16">Establecimientos del Minsa atendieron más de 250 000 casos de depresión a lo largo del año 2024. (s/f). Gob.pe. Disponible en: <a href="https://www.gob.pe/institucion/minsa/noticias/1088925-establecimientos-del-minsa-atendieron-mas-de-250-000-casos-de-depresion-a-lo-largo-del-ano-2024" target="_blank">https://www.gob.pe/institucion/minsa/noticias/1088925-establecimientos-del-minsa-atendieron-mas-de-250-000-casos-de-depresion-a-lo-largo-del-ano-2024</a></li>
   <li id="ref17">Hasnul, M. A., Aziz, N. A. A., Alelyani, S., Mohana, M., & Aziz, A. A. (2021). Electrocardiogram-based emotion recognition systems and their applications in healthcare. A review. <i>Sensors, 21</i>(15), 5015. <a href="https://doi.org/10.3390/s21155015" target="_blank">https://doi.org/10.3390/s21155015</a></li>
-  <li id="ref18">DS Hammad y H. Monkaresi, “Detección de emociones basada en ECG mediante extracción paralela de características temporales y espaciales utilizando una red neuronal convolucional”, <i>Traitement Du Signal</i>, vol. 39, n.º 1, págs. 43–57, febrero de 2022.Disponible en: <a href="https://doi.org/10.18280/ts.390105" target="_blank">https://doi.org/10.18280/ts.390105</a></li>
-  <li id="ref19">V. K. Patil, V. R. Pawar, S. P. Kulkarni, T. A. Mehta, and N. R. Khare, “Real Time Emotion Recognition with AD8232 ECG Sensor for Classwise Performance Evaluation of Machine Learning Methods,” <i>International Journal of Engineering. Transactions C: Aspects</i>, vol. 36, no. 6, pp. 1040–1047, Jan. 2023.Available: <a href="https://doi.org/10.5829/ije.2023.36.06c.02" target="_blank">https://doi.org/10.5829/ije.2023.36.06c.02</a></li>
-  <li id="ref20">Wang, L., Dong, X., Lu, X., & Fang, X. (2023). ECG multi-emotion recognition based on heart rate variability signal features mining. <i>Sensors, 23</i>(22), 8636. <a href="https://doi.org/10.3390/s23218636" target="_blank">https://doi.org/10.3390/s23218636</a></li>
+  <li id="ref18">V. K. Patil, V. R. Pawar, S. P. Kulkarni, T. A. Mehta, and N. R. Khare, “Real Time Emotion Recognition with AD8232 ECG Sensor for Classwise Performance Evaluation of Machine Learning Methods,” <i>International Journal of Engineering. Transactions C: Aspects</i>, vol. 36, no. 6, pp. 1040–1047, Jan. 2023.Available: <a href="https://doi.org/10.5829/ije.2023.36.06c.02" target="_blank">https://doi.org/10.5829/ije.2023.36.06c.02</a></li>
+  <li id="ref19">Wang, L., Dong, X., Lu, X., & Fang, X. (2023). ECG multi-emotion recognition based on heart rate variability signal features mining. <i>Sensors, 23</i>(22), 8636. <a href="https://doi.org/10.3390/s23218636" target="_blank">https://doi.org/10.3390/s23218636</a></li>
+  <li id="ref20">DS Hammad y H. Monkaresi, “Detección de emociones basada en ECG mediante extracción paralela de características temporales y espaciales utilizando una red neuronal convolucional”, <i>Traitement Du Signal</i>, vol. 39, n.º 1, págs. 43–57, febrero de 2022.Disponible en: <a href="https://doi.org/10.18280/ts.390105" target="_blank">https://doi.org/10.18280/ts.390105</a></li>
 </ol>
 
 <h2 id="aporte_1">Aporte de los Integrantes</h2>
