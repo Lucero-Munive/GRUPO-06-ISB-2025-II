@@ -52,8 +52,10 @@ Ante esta problemática, el análisis de señales de bioimpedancia eléctrica (B
 
 ![imagen_1](https://www.researchgate.net/publication/319317929/figure/fig5/AS:534853667438592@1504530459710/Bioelectrical-Impedance-Analysis-BIA-principle-of-work.png)
 
-<div align="center">
+<div style="text-align: center;">
+
 *Imágen 1: Bioelectrical Impedance Analysis (BIA) principle of work, tomada de: [ResearchGate](https://www.researchgate.net/figure/Bioelectrical-Impedance-Analysis-BIA-principle-of-work_fig5_319317929) <a href="#ref1">[ref]</a>* 
+
 <div>
 
 
