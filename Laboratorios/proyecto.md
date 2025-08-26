@@ -1,7 +1,8 @@
 ## Aporte de los Integrantes
 
-| Integrante                        | Aporte   |
-|-----------------------------------|----------|
-| Álvaro                            | 33.33 %  |
-| Lucero Camila Munive Huaranga     | 33.33 %  |
-| Fiorella                          | 33.33 %  |
+| Integrante               | Aporte   |
+|--------------------------|----------|
+| Álvaro Untiveros         | 33.33 %  |
+| Lucero Munive            | 33.33 %  |
+| Fiorella Pérez           | 33.33 %  |
+
