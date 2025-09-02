@@ -112,6 +112,7 @@ Se cargaron los datos del sujeto S2 en un DataFrame de `pandas` para un análisi
 
 ![Distribución de la Amplitud de la Señal ECG durante el Estrés (Muestra de Sujetos)](Otros\Imagen_4_ECG.png)
 
+
 ### 4. Conclusión de la Fase de Comprensión de Datos
 
 El análisis del dataset WESAD confirmó su alta idoneidad para el proyecto por las siguientes razones:
