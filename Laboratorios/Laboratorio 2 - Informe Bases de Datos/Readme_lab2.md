@@ -31,7 +31,7 @@ El proceso de análisis de este complejo dataset público implicó varias etapas
     *   Datos **demográficos** (edad, sexo).
     *   Datos **clínicos** que pudieran servir como indicador o proxy de la Insuficiencia Cardíaca.
 
-![Carga y Exploración de Datos](Otros\Imagen_1_bioimp.png)
+![Carga y Exploración de Datos](Otros/Imagen_1_bioimp.png)
 
 #### 2.2. Limpieza y Preprocesamiento
 *   Se realizó un extenso trabajo de limpieza para manejar los valores faltantes y los códigos específicos del survey (ej. `777`, `999` para "no sabe / no contesta").
