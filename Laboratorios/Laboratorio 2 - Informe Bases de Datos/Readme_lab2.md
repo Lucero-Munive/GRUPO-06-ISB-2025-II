@@ -48,7 +48,7 @@ A pesar del potencial de un dataset tan grande, se encontraron limitaciones fund
 *   **Naturaleza de los Datos de BIE (Limitación Principal):** El dataset NHANES proporciona únicamente un **valor puntual de BIE (resistencia a 50 kHz)**, no una **señal cruda de bioimpedancia** en función del tiempo o de la frecuencia. Esto impedía la aplicación de las técnicas de procesamiento de señales (filtrado, análisis en frecuencia, extracción de características de la forma de onda) que son el núcleo del curso de ISB. El dato disponible es una *característica* ya extraída, no una *señal*.
 *   **Ambigüedad de la Variable Objetivo:** Identificar una etiqueta clara y fiable para "Insuficiencia Cardíaca" en una encuesta de salud general resultó ser muy complejo. Los diagnósticos están a menudo auto-reportados o codificados de manera indirecta, lo que introduce ruido y dificulta la creación de un grupo de "casos" bien definido para entrenar un modelo.
 
-![Ambigüedad de la Variable Objetivo](Otros\Imagen_2_bioimp.png)
+![Ambigüedad de la Variable Objetivo](Otros/Imagen_2_bioimp.png)
 
 *   **Complejidad del Dataset:** La estructura de NHANES, con sus múltiples archivos, documentación extensa y códigos específicos, requería un esfuerzo de preprocesamiento desproporcionado para el alcance del laboratorio, desviando el foco del análisis de la señal en sí.
 
@@ -90,14 +90,14 @@ Se cargaron los datos del sujeto S2 en un DataFrame de `pandas` para un análisi
 
 *   **Distribución de Etiquetas:** Se visualizó la cantidad de muestras para cada estado emocional, confirmando la disponibilidad de datos suficientes para las clases de interés.
 
-![Distribución de Muestras por Estado Emocional (Sujeto S2)](Otros\Imagen_1_ECG.png)
+![Distribución de Muestras por Estado Emocional (Sujeto S2)](Otros/Imagen_1_ECG.png)
 
 *   **Conversión y Visualización de Señales:** Se convirtieron las señales crudas a sus unidades físicas (mV para ECG, μS para EDA, etc.) y se graficaron segmentos de 15 segundos para comparar los estados de "Línea Base" y "Estrés".
 
-![Comparación de Señales Fisiológicas: Línea Base vs. Estrés (Sujeto S2)](Otros\Imagen_2_ECG.png)
+![Comparación de Señales Fisiológicas: Línea Base vs. Estrés (Sujeto S2)](Otros/Imagen_2_ECG.png)
 
 
-![VAriación de los estadios etiquetados según el tiempo (Sujeto S2)](Otros\Imagen_3_ECG.png)
+![VAriación de los estadios etiquetados según el tiempo (Sujeto S2)](Otros/Imagen_3_ECG.png)
 
 *   **Hallazgos Clave en S2:**
     *   **ECG:** Aumento claro de la frecuencia cardíaca (picos R más juntos) durante el estrés.
@@ -110,7 +110,7 @@ Se cargaron los datos del sujeto S2 en un DataFrame de `pandas` para un análisi
 *   **Variabilidad Inter-Sujeto:** Se analizó la distribución de la amplitud de la señal ECG durante el estrés para una muestra de sujetos. Aunque existen variaciones naturales entre individuos, los patrones generales de respuesta se mantuvieron consistentes, validando la generalización potencial del modelo.
 
 
-![Distribución de la Amplitud de la Señal ECG durante el Estrés (Muestra de Sujetos)](Otros\Imagen_4_ECG.png)
+![Distribución de la Amplitud de la Señal ECG durante el Estrés (Muestra de Sujetos)](Otros/Imagen_4_ECG.png)
 
 
 ### 4. Conclusión de la Fase de Comprensión de Datos
