@@ -1,0 +1,4 @@
+name: env_lab3_
+channels:
+  - defaults
+prefix: C:\Users\Alvaro\anaconda3\envs\env_lab3_
