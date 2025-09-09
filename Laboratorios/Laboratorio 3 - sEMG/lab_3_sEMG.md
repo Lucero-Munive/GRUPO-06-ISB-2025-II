@@ -149,8 +149,9 @@ La colocación siguió las recomendaciones  [SENIAM](http://seniam.org/tricepsbr
 
 | **Tríceps en reposo** | **Tríceps sin oposición** | **Tríceps con oposición** |
 |:---------------------:|:--------------------------:|:--------------------------:|
-| <video src="https://github.com/user-attachments/assets/f14ac5b9-b1e5-467c-ada9-e72a91181bb4" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/e0a4b153-1b53-4a3e-982e-4c91fba9b535" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/67880428-f923-45ac-b058-34e93e8361c0" width="250" height="250" controls></video> |
+| <video src="https://github.com/user-attachments/assets/f14ac5b9-b1e5-467c-ada9-e72a91181bb4" style="width:250px;height:250px;" controls></video> | <video src="https://github.com/user-attachments/assets/e0a4b153-1b53-4a3e-982e-4c91fba9b535" style="width:250px;height:250px;" controls></video> | <video src="https://github.com/user-attachments/assets/67880428-f923-45ac-b058-34e93e8361c0" style="width:250px;height:250px;" controls></video> |
 | Brazo relajado, sin activación muscular | Extensión libre del codo, sin resistencia externa | Extensión del codo con resistencia manual aplicada hacia la flexión |
+
 
 ---
 ## **5. Resultados**
