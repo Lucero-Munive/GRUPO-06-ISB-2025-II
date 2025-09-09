@@ -280,6 +280,14 @@ Como trabajo futuro, sería valioso realizar mediciones simultáneas para estudi
 
 [10] Phinyomark, A., Nuidod, A., Phukpattaranont, P. and Limsakul, C. (2012) Feature Extraction and Reduction of Wavelet Transform Coefficients for EMG Pattern Classification. Electronics and Electrical Engineering, 122, 1392-1215. - References - Scientific Research Publishing [Internet]. Scirp.org. 2018 [cited 2025 Sep 9]. Available from: https://www.scirp.org/reference/referencespapers?referenceid=2290336
 
+---
+## Aporte de cada integrante
+| Integrante               | Aporte   |
+|--------------------------|----------|
+| Alvaro Untiveros         | 33.33 %  |
+| Lucero Munive            | 33.33 %  |
+| Fiorella Pérez           | 33.33 %  |
+
 
 
 
