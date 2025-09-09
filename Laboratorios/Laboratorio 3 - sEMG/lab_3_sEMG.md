@@ -242,17 +242,6 @@ Esta distribución es consistente con la literatura y valida la calidad de la ad
 
 
 ---
-¡Claro que sí! Basado en todo el análisis que hemos realizado, aquí tienes una sección de conclusiones completa y estructurada que puedes añadir al final de tu informe.
-
-Esta conclusión está diseñada para cumplir varios objetivos:
-*   **Responder al Objetivo General:** Confirma que se cumplieron los propósitos del laboratorio.
-*   **Sintetizar los Hallazgos Clave:** Resume los resultados más importantes del análisis de tiempo y frecuencia.
-*   **Reflexionar sobre las Limitaciones:** Menciona los desafíos encontrados (como la señal del tríceps lento), lo que demuestra un análisis crítico.
-*   **Proponer Futuros Trabajos:** Sugiere cómo se podría expandir este estudio.
-
-Puedes copiar y pegar esto directamente en tu archivo `.md` principal, bajo un nuevo título `## 6. Conclusiones`.
-
----
 
 ## **6. Conclusiones**
 
