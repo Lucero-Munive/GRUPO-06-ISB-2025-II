@@ -71,7 +71,7 @@ Registrar y analizar señales de electromiografía de superficie (sEMG) mediante
 * Finalmente, con el brazo en reposo, se verificó que la señal estuviera estable y, posteriormente, se realizó una contracción leve para confirmar que la amplitud de la señal aumentara.
 
 <p align="center">
-  <img src="Imagenes/FlujoProcedimiento.png" width="600" height="250">
+  <img src="Imagenes/FlujoProcedimiento.png" width="800" height="550">
 </p>
 
 ---
@@ -106,7 +106,7 @@ El ejercicio se realizó con el brazo dominante (derecho).
 
 ### **Ubicación de los electrodos**
 
-La configuración siguió un montaje **bipolar** según la guía BITalino :
+La configuración siguió un montaje **bipolar** según la guía BITalino [3] :
 
 <p align="center">
   <img src="Imagenes/UbicacionElectrodosBicep.png" width="300">
@@ -121,13 +121,13 @@ La configuración siguió un montaje **bipolar** según la guía BITalino :
 
 
 ### **Representación visual de las condiciones**
-
-| **Reposo** | **Sin oposición** | **Con oposición** |
-|:----------:|:----------------:|:----------------:|
-| <video src="https://github.com/user-attachments/assets/f68b83eb-41d0-4bb1-9840-b5055be92fdf" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/2a598a30-607b-42cb-95e7-1bff6f94a0a0" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/bc9b4dfa-7c06-4d7b-bc51-e619728bd505" width="250" height="250" controls></video> |
+| **Bíceps en reposo** | **Bíceps sin oposición** | **Bíceps con oposición** |
+|:--------------------:|:------------------------:|:------------------------:|
+| <video src="https://github.com/user-attachments/assets/f68b83eb-41d0-4bb1-9840-b5055be92fdf" style="width:250px; height:250px; object-fit:cover;" controls></video> | <video src="https://github.com/user-attachments/assets/2a598a30-607b-42cb-95e7-1bff6f94a0a0" style="width:250px; height:250px; object-fit:cover;" controls></video> | <video src="https://github.com/user-attachments/assets/bc9b4dfa-7c06-4d7b-bc51-e619728bd505" style="width:250px; height:250px; object-fit:cover;" controls></video> |
 | Brazo relajado, sin activación muscular | Flexión del codo libre, sin resistencia externa | Flexión del codo con resistencia manual aplicada hacia la extensión |
 
 ---
+
 ## **Segunda prueba: Contracción del tríceps braquial**
 
 En esta prueba se evaluó la activación de la cabeza lateral del tríceps braquial, responsable principalmente de la extensión del codo.
@@ -149,7 +149,7 @@ La colocación siguió las recomendaciones  [SENIAM](http://seniam.org/tricepsbr
 
 | **Tríceps en reposo** | **Tríceps sin oposición** | **Tríceps con oposición** |
 |:---------------------:|:--------------------------:|:--------------------------:|
-| <video src="https://github.com/user-attachments/assets/f14ac5b9-b1e5-467c-ada9-e72a91181bb4" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/e0a4b153-1b53-4a3e-982e-4c91fba9b535" width="250" height="250" controls></video> | <video src="https://github.com/user-attachments/assets/67880428-f923-45ac-b058-34e93e8361c0" width="250" height="250" controls></video> |
+| <video src="https://github.com/user-attachments/assets/f14ac5b9-b1e5-467c-ada9-e72a91181bb4" style="width:250px; height:250px; object-fit:cover;" controls></video> | <video src="https://github.com/user-attachments/assets/e0a4b153-1b53-4a3e-982e-4c91fba9b535" style="width:250px; height:250px; object-fit:cover;" controls></video> | <video src="https://github.com/user-attachments/assets/67880428-f923-45ac-b058-34e93e8361c0" style="width:250px; height:250px; object-fit:cover;" controls></video> |
 | Brazo relajado, sin activación muscular | Extensión libre del codo, sin resistencia externa | Extensión del codo con resistencia manual aplicada hacia la flexión |
 
 ---
@@ -279,6 +279,14 @@ Como trabajo futuro, sería valioso realizar mediciones simultáneas para estudi
 [9] De Luca C. SURFACE ELECTROMYOGRAPHY: DETECTION AND RECORDING [Internet]. 2002. Available from: https://www.delsys.com/downloads/TUTORIAL/semg-detection-and-recording.pdf 
 
 [10] Phinyomark, A., Nuidod, A., Phukpattaranont, P. and Limsakul, C. (2012) Feature Extraction and Reduction of Wavelet Transform Coefficients for EMG Pattern Classification. Electronics and Electrical Engineering, 122, 1392-1215. - References - Scientific Research Publishing [Internet]. Scirp.org. 2018 [cited 2025 Sep 9]. Available from: https://www.scirp.org/reference/referencespapers?referenceid=2290336
+
+---
+## Aporte de cada integrante
+| Integrante               | Aporte   |
+|--------------------------|----------|
+| Alvaro Untiveros         | 33.33 %  |
+| Lucero Munive            | 33.33 %  |
+| Fiorella Pérez           | 33.33 %  |
 
 
 
