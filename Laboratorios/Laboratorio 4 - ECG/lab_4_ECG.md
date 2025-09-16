@@ -110,8 +110,8 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
 
    | Condición   | Derivada I                        | Derivada II                       |
    |-------------|-----------------------------------|-----------------------------------|
-   | Con apnea   | ![Derivada I - Apnea](derivada1_apnea.mp4)   | ![Derivada II - Apnea](derivada2_apnea.mp4)   |
-   | Sin apnea   | ![Derivada I - Normal](derivada1_normal.mp4) | ![Derivada II - Normal](derivada2_normal.mp4) |
+   | Con apnea   |<video src="https://github.com/user-attachments/assets/c3b1f966-d948-45a7-b723-40f0f6ef051a" width="320" controls></video>    | <video src="https://github.com/user-attachments/assets/fcdd897b-42ec-4d40-a7f4-86dc5127ebc8" width="320" controls></video>   |
+   | Sin apnea   |  <video src="https://github.com/user-attachments/assets/40d3d88d-3287-49fd-ba54-90e6d288311a" width="320" controls></video> |  <video src="https://github.com/user-attachments/assets/4ff38b0b-b050-429d-bde1-b9a23573f8de" width="320" controls></video> |
 
 
    ---
