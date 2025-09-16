@@ -120,8 +120,12 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
    El sujeto realizó **15 minutos de actividad física aeróbica (correr)**.  
    Inmediatamente después, se registró la señal de ECG en reposo para evaluar la respuesta cardíaca durante la recuperación.
 
-  <video src="https://github.com/user-attachments/assets/da8b05a6-ff84-4431-911e-2e584e4a54e3" width="320" height="240" controls></video>    | <video src="https://github.com/user-attachments/assets/fcdd897b-42ec-4d40-a7f4-86dc5127ebc8" width="320" height="240" controls></video>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/da8b05a6-ff84-4431-911e-2e584e4a54e3" width="320" height="240" controls></video>
+</div>
 
+
+  
    **Resultados:**
 
    | Condición            | Derivada I                                  | Derivada II                                 |
