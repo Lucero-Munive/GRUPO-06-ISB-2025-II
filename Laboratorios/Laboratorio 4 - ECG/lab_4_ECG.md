@@ -70,6 +70,11 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
 1. **Configuración del Sistema:**  
    Se conectó la placa **BITalino** a la computadora mediante **Bluetooth** y se configuró el software **OpenSignals** para la adquisición de la señal ECG a una frecuencia de muestreo de **1000 Hz**.
 
+<div align="center">
+  <img src="Imagenes/ECG.png" alt="ECG Bitalino" width="600">
+  <p><b>Figura 4.</b> ECG Bitalino.</p>
+</div>
+
 2. **Colocación de Electrodos:**  
    Los electrodos se colocaron en las muñecas del sujeto para registrar las derivaciones bipolares de las extremidades, siguiendo las convenciones del triángulo de Einthoven:
 
