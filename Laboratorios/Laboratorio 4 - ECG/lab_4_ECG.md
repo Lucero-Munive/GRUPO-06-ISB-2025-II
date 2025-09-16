@@ -87,7 +87,7 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
      Las mediciones de las dos derivaciones se realizaron de forma consecutiva, no sincrónica.
 
 <div align="center">
-  <img src="MUÑECAS_ECG.png" alt="Posicionamiento de los electrodos" width="600">
+  <img src="Imagenes/MUNECAS.png" alt="Posicionamiento de los electrodos" width="600">
   <p><b>Figura 4.</b> Posicionamiento de los electrodos, primera derivada.</p>
 </div>
 
