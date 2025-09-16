@@ -121,7 +121,7 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
    Inmediatamente después, se registró la señal de ECG en reposo para evaluar la respuesta cardíaca durante la recuperación.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/da8b05a6-ff84-4431-911e-2e584e4a54e3" width="320" height="240" controls></video>
+  <video src="https://github.com/user-attachments/assets/da8b05a6-ff84-4431-911e-2e584e4a54e3" width="200" height="150" controls></video>
 </div>
 
 
