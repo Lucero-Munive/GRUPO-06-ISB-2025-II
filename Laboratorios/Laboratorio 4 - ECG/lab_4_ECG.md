@@ -110,8 +110,8 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
 
    | Condición   | Derivada I                        | Derivada II                       |
    |-------------|-----------------------------------|-----------------------------------|
-   | Con apnea   |<video src="https://github.com/user-attachments/assets/c3b1f966-d948-45a7-b723-40f0f6ef051a" width="320" controls></video>    | <video src="https://github.com/user-attachments/assets/fcdd897b-42ec-4d40-a7f4-86dc5127ebc8" width="320" controls></video>   |
-   | Sin apnea   |  <video src="https://github.com/user-attachments/assets/40d3d88d-3287-49fd-ba54-90e6d288311a" width="320" controls></video> |  <video src="https://github.com/user-attachments/assets/4ff38b0b-b050-429d-bde1-b9a23573f8de" width="320" controls></video> |
+   | Con apnea   |<video src="https://github.com/user-attachments/assets/c3b1f966-d948-45a7-b723-40f0f6ef051a" width="320" height="240" controls></video>    | <video src="https://github.com/user-attachments/assets/fcdd897b-42ec-4d40-a7f4-86dc5127ebc8" width="320" height="240" controls></video>   |
+   | Sin apnea   |  <video src="https://github.com/user-attachments/assets/40d3d88d-3287-49fd-ba54-90e6d288311a" width="320" height="240" controls></video> |  <video src="https://github.com/user-attachments/assets/4ff38b0b-b050-429d-bde1-b9a23573f8de" width="320" height="240" controls></video> |
 
 
    ---
@@ -126,7 +126,7 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
 
    | Condición            | Derivada I                                  | Derivada II                                 |
    |----------------------|---------------------------------------------|---------------------------------------------|
-   | Después de agitación | ![Derivada I - Post Ejercicio](derivada1_postejercicio.mp4) | ![Derivada II - Post Ejercicio](derivada2_postejercicio.mp4) |
+   | Después de agitación |<video src="https://github.com/user-attachments/assets/29a7202d-af2a-41ba-839d-26f0eb4bb5c8" width="320" height="240" controls>|<video src="https://github.com/user-attachments/assets/9a02b5a1-97a9-40b7-a8e1-23e30370c967" width="320" height="240" controls></video> |
 
 
 
