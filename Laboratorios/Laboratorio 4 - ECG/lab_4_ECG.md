@@ -165,7 +165,7 @@ El primer paso consistió en aplicar un filtro pasa-banda. La Figura 5 ilustra e
 **Discusión:** El filtrado elimina eficazmente la **deriva de la línea de base** en la señal de reposo y **atenúa el ruido de alta frecuencia** en la señal post-ejercicio, lo que resulta en una forma de onda más definida y facilita una detección de picos R precisa [5].
 
 
-Una vez filtrada la señal, se procede a la detección de los picos R, que son la base para el análisis de ritmo. La Figura 5 muestra el resultado de este algoritmo sobre un segmento de la señal ya procesada.
+Una vez filtrada la señal, se procede a la detección de los picos R, que son la base para el análisis de ritmo. La Figura 6 muestra el resultado de este algoritmo sobre un segmento de la señal ya procesada.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_13_1.png" alt="Detección de picos R" width="900">
