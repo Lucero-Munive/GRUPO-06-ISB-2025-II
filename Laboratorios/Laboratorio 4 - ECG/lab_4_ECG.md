@@ -88,7 +88,7 @@ Adquirir, procesar y analizar señales electrocardiográficas (ECG) utilizando e
 
 <div align="center">
   <img src="Imagenes/MUNECAS.png" alt="Posicionamiento de los electrodos" width="600">
-  <p><b>Figura 4.</b> Posicionamiento de los electrodos, primera derivada.</p>
+  <p><b>Figura 5.</b> Posicionamiento de los electrodos, primera derivada.</p>
 </div>
 
 3. **Protocolo Experimental:**  
@@ -154,12 +154,12 @@ El procesamiento consistió en los siguientes pasos:
 
 ### 5.1. Preprocesamiento y Calidad de la Señal
 
-El primer paso consistió en aplicar un filtro pasa-banda. La Figura 4 ilustra el efecto de este filtro en un segmento de reposo y en uno post-ejercicio.
+El primer paso consistió en aplicar un filtro pasa-banda. La Figura 5 ilustra el efecto de este filtro en un segmento de reposo y en uno post-ejercicio.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_9_0.png" alt="Efecto del filtro en reposo" width="900">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_9_1.png" alt="Efecto del filtro post-ejercicio" width="900">
-  <p><b>Figura 4.</b> Efecto del filtro en reposo (arriba) y post-ejercicio (abajo). Se compara la señal cruda (gris) con la filtrada (azul).</p>
+  <p><b>Figura 5.</b> Efecto del filtro en reposo (arriba) y post-ejercicio (abajo). Se compara la señal cruda (gris) con la filtrada (azul).</p>
 </div>
 
 **Discusión:** El filtrado elimina eficazmente la **deriva de la línea de base** en la señal de reposo y **atenúa el ruido de alta frecuencia** en la señal post-ejercicio, lo que resulta en una forma de onda más definida y facilita una detección de picos R precisa [5].
@@ -169,30 +169,30 @@ Una vez filtrada la señal, se procede a la detección de los picos R, que son l
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_13_1.png" alt="Detección de picos R" width="900">
-  <p><b>Figura 5.</b> Ejemplo de detección de picos R (puntos rojos) sobre una señal de ECG filtrada.</p>
+  <p><b>Figura 6.</b> Ejemplo de detección de picos R (puntos rojos) sobre una señal de ECG filtrada.</p>
 </div>
 
-**Discusión:** Como se observa en la Figura 5, el algoritmo identifica correctamente los picos R (marcados en rojo) como los puntos de máxima amplitud dentro de cada complejo QRS. La distancia mínima impuesta entre detecciones previene que otros componentes de la onda, como la onda T, sean erróneamente identificados. Esta detección precisa es el prerrequisito indispensable para el posterior cálculo de la frecuencia cardíaca y las métricas de variabilidad.
+**Discusión:** Como se observa en la Figura 6, el algoritmo identifica correctamente los picos R (marcados en rojo) como los puntos de máxima amplitud dentro de cada complejo QRS. La distancia mínima impuesta entre detecciones previene que otros componentes de la onda, como la onda T, sean erróneamente identificados. Esta detección precisa es el prerrequisito indispensable para el posterior cálculo de la frecuencia cardíaca y las métricas de variabilidad.
 
 
 ### 5.2. Verificación de la Segmentación Fisiológica
 
-Se segmentaron las señales de reposo según el protocolo. La Figura 5 confirma visualmente la correcta aplicación del enventanado.
+Se segmentaron las señales de reposo según el protocolo. La Figura 7 confirma visualmente la correcta aplicación del enventanado.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_18_0.png" alt="Segmentación de la Derivación 1" width="900">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_18_1.png" alt="Segmentación de la Derivación 2" width="900">
-  <p><b>Figura 6.</b> Verificación visual de la segmentación en la Derivación 1 (arriba) y la Derivación 2 (abajo). Cada color representa un evento fisiológico.</p>
+  <p><b>Figura 7.</b> Verificación visual de la segmentación en la Derivación 1 (arriba) y la Derivación 2 (abajo). Cada color representa un evento fisiológico.</p>
 </div>
 
 ### 5.3. Análisis Comparativo entre Condiciones Fisiológicas
 
-La Figura 6 compara las métricas cardíacas entre las tres condiciones.
+La Figura 8 compara las métricas cardíacas entre las tres condiciones.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_23_0.png" alt="Boxplot de BPM" width="700">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_23_1.png" alt="Boxplot de RMSSD" width="700">
-  <p><b>Figura 7.</b> Comparación de las distribuciones de BPM (a) y RMSSD (b) entre las condiciones.</p>
+  <p><b>Figura 8.</b> Comparación de las distribuciones de BPM (a) y RMSSD (b) entre las condiciones.</p>
 </div>
 
 **Resultados del Análisis Estadístico (ANOVA):**
@@ -202,27 +202,27 @@ La Figura 6 compara las métricas cardíacas entre las tres condiciones.
 
 ### 5.4. Comparación Morfológica entre Derivaciones
 
-La Figura 7 compara la forma de onda del ECG en reposo y post-ejercicio entre las dos derivaciones.
+La Figura 9 compara la forma de onda del ECG en reposo y post-ejercicio entre las dos derivaciones.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_26_0.png" alt="Comparación de Derivaciones en Reposo" width="900">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_26_1.png" alt="Comparación de Derivaciones Post-Ejercicio" width="900">
-  <p><b>Figura 7.</b> Comparación de la morfología del ECG entre Derivación I y II en reposo (arriba) y post-ejercicio (abajo).</p>
+  <p><b>Figura 9.</b> Comparación de la morfología del ECG entre Derivación I y II en reposo (arriba) y post-ejercicio (abajo).</p>
 </div>
 
 **Discusión:** Consistentemente, la **Derivación I presenta una mayor amplitud del QRS**. Esto le confiere una mejor relación señal-ruido, haciéndola más robusta para el análisis automatizado del ritmo en este sujeto [6].
 
 ### 5.5. Análisis de Morfología de Latidos por Clustering
 
-La Figura 8 y 9 muestran los resultados del clustering no supervisado para clasificar los latidos según su forma.
+La Figura 10 y 11 muestran los resultados del clustering no supervisado para clasificar los latidos según su forma.
 
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_31_0.png" alt="Clusters de morfología en vista PCA" width="700">
-  <p><b>Figura 8.</b> Clusters de latidos visualizados en el espacio de los componentes principales (PCA).</p>
+  <p><b>Figura 10.</b> Clusters de latidos visualizados en el espacio de los componentes principales (PCA).</p>
 </div>
 <div align="center">
   <img src="Procesamiento_señales/procesamiento_ECG_files/procesamiento_ECG_31_1.png" alt="Morfología promedio por cluster" width="900">
-  <p><b>Figura 9.</b> Morfología promedio de los tres clusters de latidos identificados.</p>
+  <p><b>Figura 11.</b> Morfología promedio de los tres clusters de latidos identificados.</p>
 </div>
 
 **Discusión:** El análisis identificó tres patrones: **Cluster 0 y 2** corresponden a los **latidos sinusales normales**, cuyas sutiles diferencias se atribuyen a la modulación respiratoria. El **Cluster 1** agrupó con éxito los **latidos contaminados por artefactos y ruido**. Este método valida la calidad general del registro y permite la clasificación automática de latidos [7, 8].
