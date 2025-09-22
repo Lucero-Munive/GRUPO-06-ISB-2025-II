@@ -101,15 +101,7 @@ Registrar, procesar y analizar señales electroencefalográficas (EEG) mediante 
   <p><b>Figura 4.</b> Ejemplo de paciente en ambiente controlado y relajado para adquisición EEG.</p>
 </div>
 
-5. Ejecutar el protocolo de adquisición. Mantener la duración total en 12 minutos y dividirla en fases para evaluar estados de reposo, tareas cognitivas y artefactos de forma controlada:  
-
-   | Minuto | Condición      | Detalle                         | Señales                                  |
-   |-------:|----------------|---------------------------------|------------------------------------------|
-   | 0–1    | Basal 1        | Ojos abiertos, fijar un punto   | EEG reposo, menor actividad alfa         |
-   | 1–2    | Basal 2        | Ojos cerrados                   | Incremento de ondas alfa (8–13 Hz)       |
-   | 2–4    | Tarea cognitiva| Restar 7 desde 100 en silencio  | Mayor actividad beta, supresión alfa     |
-   | 4–6    | Artefactos     | Parpadear cada 2 s y masticar   | Artefactos oculares y musculares inducidos|
-   | 6–12   | Libre          | Diseño del grupo (música, respiración, etc.) | Señales variables según tarea |
+5. Ejecutar el protocolo de adquisición. para cada uno de los 2 sujetos (insertar tabla)
 
 6. Registrar y almacenar la señal adquirida.  
    - Registrar los datos de forma continua durante todo el protocolo.  
