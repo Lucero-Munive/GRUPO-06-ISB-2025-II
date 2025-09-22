@@ -44,7 +44,7 @@ Las señales EEG se caracterizan por su naturaleza oscilatoria, compuesta por on
 
 
 
-## Objetivos
+## 2. Objetivos
 ---
 
 ### Objetivo General
@@ -58,7 +58,7 @@ Registrar, procesar y analizar señales electroencefalográficas (EEG) mediante 
 - Aplicar un filtrado band-pass entre 0.8–48 Hz y reconocer en los registros los ritmos electroencefalográficos δ (delta), θ (theta), α (alfa) y β (beta).
 - Exportar y documentar los datos obtenidos en un informe breve con los principales hallazgos cuantitativos.
 
-## Materiales
+## 3. Materiales
 ---
 
 | Material | Foto | Detalles |
@@ -68,6 +68,50 @@ Registrar, procesar y analizar señales electroencefalográficas (EEG) mediante 
 | 3 Electrodos de superficie desechables | <p align="center"><img src="ImagenesL5/Electrodos.PNG" alt="Electrodos" width="350"/></p> | Se colocan en las posiciones Fp1, Fp2 y O2 del sistema internacional 10-20. |
 | 1 Ultracortex Mark IV (dry-electrode headset) | <p align="center"><img src="ImagenesL5/Ultracortex.jpg" alt="Ultracortex Mark IV" width="300"/></p> | Casco EEG de electrodos secos, utilizado en modalidad rotativa (demo). Permite un registro rápido sin necesidad de gel. |
 | 1 Guía de laboratorio | <p align="center"><img src="ImagenesL5/GuiaN5.png" alt="Guía de laboratorio" width="350"/></p> | Documento de referencia con instrucciones para el desarrollo de la práctica. |
+
+## 4. Metodología
+
+1. Vincular la placa BITalino a la PC mediante Bluetooth y configurar el canal A4 como EEG, estableciendo una frecuencia de muestreo de 1000 Hz.  
+   - Esta tasa cumple con el criterio de Nyquist para registrar con fidelidad señales cerebrales de hasta 48 Hz, abarcando las principales bandas EEG (delta, theta, alfa, beta).
+
+2. Preparar la piel y colocar los electrodos (Montaje de electrodos, 5 min).  
+   - Limpiar las zonas correspondientes a Fp1, Fp2 y mastoide derecha para reducir la impedancia de contacto.  
+   - Conectar el Electrodo 1 en Fp1, el GND en Fp2 y el Electrodo 2 en la mastoide derecha como referencia.  
+   - Comprobar la impedancia en el software OpenSignals, asegurando valores inferiores a 20 kΩ.  
+   <figure>
+     <img src="eeg_metodologia_assets/colocacion_electrodos.png" alt="Colocación de electrodos" style="max-width: 100%;"/>
+     <figcaption><em>Ubicación de electrodos en región frontal y referencia retroauricular/mastoidea.</em></figcaption>
+   </figure>
+
+3. Verificar la correcta colocación. Confirmar visualmente la fijación de los electrodos y asegurar que los cables estén sujetos para evitar artefactos por tracción.  
+   <figure>
+     <img src="eeg_metodologia_assets/colocacion_real.png" alt="Colocación en sujeto" style="max-width: 100%;"/>
+     <figcaption><em>Ejemplo de colocación en sujeto con BITalino y electrodos en Fp1/Fp2 y referencia.</em></figcaption>
+   </figure>
+
+4. Adecuar el ambiente de registro. Realizar la adquisición en un espacio con iluminación tenue y bajo nivel de ruido.  
+   - Reducir la luz para disminuir parpadeos y movimientos oculares, que generan artefactos de mayor amplitud que la señal EEG.  
+   - Minimizar ruidos y estímulos externos para evitar tensión muscular y actividad EMG contaminante.  
+   - Favorecer un entorno silencioso y controlado que permita observar con claridad ritmos como el alfa occipital durante reposo con ojos cerrados.  
+   <figure>
+     <img src="eeg_metodologia_assets/protocolo_ambiente.png" alt="Condiciones de ambiente" style="max-width: 100%;"/>
+     <figcaption><em>Ejemplo de paciente en ambiente controlado y relajado para adquisición EEG.</em></figcaption>
+   </figure>
+
+5. Ejecutar el protocolo de adquisición. Mantener la duración total en 12 minutos y dividirla en fases para evaluar estados de reposo, tareas cognitivas y artefactos de forma controlada:  
+
+   | Minuto | Condición      | Detalle                         | Señales                                  |
+   |-------:|----------------|---------------------------------|------------------------------------------|
+   | 0–1    | Basal 1        | Ojos abiertos, fijar un punto   | EEG reposo, menor actividad alfa         |
+   | 1–2    | Basal 2        | Ojos cerrados                   | Incremento de ondas alfa (8–13 Hz)       |
+   | 2–4    | Tarea cognitiva| Restar 7 desde 100 en silencio  | Mayor actividad beta, supresión alfa     |
+   | 4–6    | Artefactos     | Parpadear cada 2 s y masticar   | Artefactos oculares y musculares inducidos|
+   | 6–12   | Libre          | Diseño del grupo (música, respiración, etc.) | Señales variables según tarea |
+
+6. Registrar y almacenar la señal adquirida.  
+   - Registrar los datos de forma continua durante todo el protocolo.  
+   - Guardar los archivos en la PC al finalizar, preferentemente en formato CSV o binario para análisis posterior.  
+   - Anotar en la bitácora cualquier incidencia (movimientos, ruidos, ajustes de electrodos) que pueda influir en la interpretación de los datos.
 
 
 ## Referencias
