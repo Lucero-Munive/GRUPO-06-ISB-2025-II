@@ -1,5 +1,8 @@
 # Laboratorio 5: Análisis de Señales de Electroencefalograma (EEG)
 
+---
+
+
 ## Índice
 
 - [1. Introducción](#1-introducción)
