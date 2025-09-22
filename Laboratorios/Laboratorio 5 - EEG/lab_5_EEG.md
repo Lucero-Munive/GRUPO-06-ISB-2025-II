@@ -77,26 +77,29 @@ Registrar, procesar y analizar señales electroencefalográficas (EEG) mediante 
 2. Preparar la piel y colocar los electrodos (Montaje de electrodos, 5 min).  
    - Limpiar las zonas correspondientes a Fp1, Fp2 y mastoide derecha para reducir la impedancia de contacto.  
    - Conectar el Electrodo 1 en Fp1, el GND en Fp2 y el Electrodo 2 en la mastoide derecha como referencia.  
-   - Comprobar la impedancia en el software OpenSignals, asegurando valores inferiores a 20 kΩ.  
-   <figure>
-     <img src="eeg_metodologia_assets/colocacion_electrodos.png" alt="Colocación de electrodos" style="max-width: 100%;"/>
-     <figcaption><em>Ubicación de electrodos en región frontal y referencia retroauricular/mastoidea.</em></figcaption>
-   </figure>
+   - Comprobar la impedancia en el software OpenSignals, asegurando valores inferiores a 20 kΩ.
+  
+<div align="center">
+  <img src="ImagenesL5/ELECTRODOS_EEG.png" alt="EEG" width="400">
+  <p><b>Figura 4.</b> Ubicación de electrodos en región frontal y referencia retroauricular/mastoidea.</p>
+</div>
 
 3. Verificar la correcta colocación. Confirmar visualmente la fijación de los electrodos y asegurar que los cables estén sujetos para evitar artefactos por tracción.  
-   <figure>
-     <img src="eeg_metodologia_assets/colocacion_real.png" alt="Colocación en sujeto" style="max-width: 100%;"/>
-     <figcaption><em>Ejemplo de colocación en sujeto con BITalino y electrodos en Fp1/Fp2 y referencia.</em></figcaption>
-   </figure>
+
+<div align="center">
+  <img src="ImagenesL5/POSICION_EEG.png" alt="EEG" width="400">
+  <p><b>Figura 4.</b> Ejemplo de colocación en sujeto con BITalino y electrodos en Fp1/Fp2 y referencia.</p>
+</div>
 
 4. Adecuar el ambiente de registro. Realizar la adquisición en un espacio con iluminación tenue y bajo nivel de ruido.  
    - Reducir la luz para disminuir parpadeos y movimientos oculares, que generan artefactos de mayor amplitud que la señal EEG.  
    - Minimizar ruidos y estímulos externos para evitar tensión muscular y actividad EMG contaminante.  
    - Favorecer un entorno silencioso y controlado que permita observar con claridad ritmos como el alfa occipital durante reposo con ojos cerrados.  
-   <figure>
-     <img src="eeg_metodologia_assets/protocolo_ambiente.png" alt="Condiciones de ambiente" style="max-width: 100%;"/>
-     <figcaption><em>Ejemplo de paciente en ambiente controlado y relajado para adquisición EEG.</em></figcaption>
-   </figure>
+ 
+ <div align="center">
+  <img src="ImagenesL5/AMBIENTE_EEG.png" alt="EEG" width="400">
+  <p><b>Figura 4.</b> Ejemplo de paciente en ambiente controlado y relajado para adquisición EEG.</p>
+</div>
 
 5. Ejecutar el protocolo de adquisición. Mantener la duración total en 12 minutos y dividirla en fases para evaluar estados de reposo, tareas cognitivas y artefactos de forma controlada:  
 
