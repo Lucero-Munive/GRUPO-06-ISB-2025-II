@@ -21,6 +21,7 @@
   - [5.3 Análisis del Filtrado en EEG](#53-análisis-del-filtrado-en-eeg)
 - [6. Conclusiones](#6-conclusiones)
 - [7. Bibliografía](#7-bibliografía)
+- [Aporte de cada integrante](#aporte-de-cada-integrante)
 
 ---
 
@@ -240,3 +241,12 @@ En definitiva, este trabajo subraya la superioridad de la Transformada Wavelet s
 [14] V. Krishnaveni, S. Jayaraman, S. Aravind, V. Hariharasudhan, and K. Ramadoss, “Automatic identification and removal of ocular artifacts from EEG using wavelet transform,” *Meas Sci Rev*, vol. 7, no. 2, pp. 45-57, 2007. Disponible en: https://www.measurement.sk/2007/S2/Krishnaveni.pdf
 
 [15] H. Adeli, S. Ghosh-Dastidar, and N. Dadmehr, “A wavelet-chaos methodology for analysis of EEGs and EEG subbands to detect seizure and epilepsy,” *IEEE Trans Biomed Eng*, vol. 54, no. 2, pp. 205-211, 2007. Disponible en: https://ieeexplore.ieee.org/document/4060287```
+
+---
+
+## Aporte de cada integrante
+| Integrante               | Aporte   |
+|--------------------------|----------|
+| Alvaro Untiveros         | 33.33 %  |
+| Lucero Munive            | 33.33 %  |
+| Fiorella Pérez           | 33.33 %  |
