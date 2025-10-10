@@ -44,10 +44,14 @@ Cada tipo de señal posee un espectro de frecuencia característico. En el caso 
   <p><b>Figura 1.</b> Flujo de procesamiento digital de señales: la señal analógica pasa por un filtro antialiasing, luego se digitaliza mediante un ADC, es procesada digitalmente, convertida nuevamente a analógica con un DAC y finalmente suavizada con un filtro de reconstrucción.</p>
 </div>
 
+---
+
 ## Objetivos
 ---
 - Aplicar diferentes filtros digitales a señales biomédicas de ECG y EMG adquiridas con BITalino, con el fin de reducir el ruido y resaltar las características relevantes de cada registro.
 - Seleccionar y justificar el filtro más adecuado para cada caso (2 ECG y 2 EMG).
+
+---
 
 ## Materiales
 ---
@@ -70,6 +74,7 @@ El objetivo principal es eliminar el ruido y los artefactos inherentes a cada se
 -   **Diseño de Filtros:** Se utilizará la herramienta `pyfdax` para diseñar un conjunto de filtros FIR e IIR con características específicas para cada tipo de señal.
 -   **Aplicación y Comparación:** Cada filtro se aplicará a la señal correspondiente y se evaluará su rendimiento de forma visual (dominio del tiempo y frecuencia) y cuantitativa.
 -   **Selección del Filtro Óptimo:** Se calculará la Relación Señal-Ruido (SNR) para cada caso y se generará una tabla comparativa para justificar la elección del filtro más adecuado para cada aplicación, priorizando tanto la limpieza de la señal como la preservación de su morfología característica.
+---
 
 ## Metodología
 ---
