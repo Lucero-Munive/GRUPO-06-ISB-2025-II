@@ -325,6 +325,7 @@ Cada filtro se aplicó a su señal correspondiente utilizando un **filtrado de f
 
 Este doble enfoque permitió una selección objetiva y justificada del filtro más adecuado para cada aplicación.
 
+---
 
 ## Resultados
 ---
