@@ -6,6 +6,7 @@ En este proyecto se emplearon múltiples bases de datos de señales fisiológica
 Los datasets **principales** son **WESAD** y **DREAMER**, ya que ofrecen señales ECG de alta calidad, ideales para el cálculo de métricas de **variabilidad de la frecuencia cardíaca (HRV)** y la validación de modelos de reconocimiento emocional.
 Los demás conjuntos (**ECG_GSR_Emotions**, **DriveDB** y **AffectiveROAD**) se emplean como **datasets complementarios**, útiles para contrastar el rendimiento en condiciones y poblaciones distintas.
 
+Para motivos de reproducibilidad y acceso abierto, se priorizaron datasets disponibles públicamente y con documentación adecuada. Y se adjuntan los links correspondientes para su descarga.
 ---
 
 | **Dataset**                                            | **Tipo de señales**                               | **Descripción principal**                                                                                                                                                                                                          | **Frecuencia / Dispositivo**                        | **Relevancia**                                                                             | **Acceso**                                                                                                                                                                        |
