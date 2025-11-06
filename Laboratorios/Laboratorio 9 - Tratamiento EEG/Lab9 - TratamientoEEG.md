@@ -9,8 +9,8 @@ En el ámbito del procesamiento de señales fisiológicas, el ICA se ha converti
 
 Asimismo, esta técnica se aplica con éxito para eliminar artefactos de electromiografía (EMG), movimientos oculares (EOG) y actividad cardíaca (ECG), sin comprometer la información cerebral relevante. Además, su integración en entornos computacionales modernos como MNE-Python o EEGLAB ha facilitado su incorporación en protocolos de investigación y diagnóstico clínico [4].
 <div align="center">
-  <img src="ImagenesLab9/CiegasICA.png" alt="Electrocardiograma en paciente">
-  <p><b>Figura 1.</b> Electrocardiograma en paciente [2].</p>
+  <img src="ImagenesLab9/CiegasICA.png">
+  <p><b>Figura 1.</b> Proceso de separación a ciegas de mezclas instantáneas de fuentes.</p>
 </div>
 
 ### Aplicaciones del ICA en neuroingeniería y diagnóstico
@@ -154,6 +154,7 @@ La comparación entre las señales original y limpia evidenció una reducción s
 [6] Laouhingamaye, F. et al. (2021). EEG artifact removal using ICA for sleep disorder detection. Journal of Archaeological Science, 105269. https://doi.org/10.1016/j.jas.2020.105269
 
 [7] Shahshahani, M., & Mahdiani, H. (2022). Separación ciega de fuentes desde la perspectiva de los algoritmos ICA: una revisión. In Proc. IEEE CISES 2022, pp. 1–6. DOI: https://doi.org/10.1109/CISES54857.2022.9844373
+
 
 
 
