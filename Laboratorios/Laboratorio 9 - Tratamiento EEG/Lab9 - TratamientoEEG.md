@@ -1,4 +1,4 @@
-# Laboratorio 10
+# Laboratorio 9 - Tratamiento de EEG
 ## Introducción
 ### Definición
 El Análisis de Componentes Independientes (ICA, Independent Component Analysis) es una técnica estadística avanzada perteneciente al grupo de métodos de separación ciega de fuentes (Blind Source Separation, BSS). Su propósito principal es descomponer un conjunto de señales observadas en varios componentes independientes entre sí y con distribución no gaussiana. A diferencia del Análisis de Componentes Principales (PCA), que analiza únicamente correlaciones lineales, el ICA aprovecha estadísticas de orden superior para obtener una separación más precisa entre las fuentes subyacentes [1].
@@ -142,12 +142,19 @@ La comparación entre las señales original y limpia evidenció una reducción s
 
 ## Referencias 
 [1] Pati, R., Pujari, A.K., Gahan, P., Kumar, V. (2021). Independent Component Analysis: A Review with Emphasis on Commonly Used Algorithms and Contrast Functions. Computación y Sistemas, 25(1):97–115. https://doi.org/10.13053/CyS-25-1-3449
+
 [2] Hyvärinen, A. & Oja, E. (2000). Independent Component Analysis: Algorithms and Applications. Neural Networks, 13(4-5):411–430. https://doi.org/10.1016/S0893-6080(00)00026-5
+
 [3] Lewis De La Cruz, L. (2024). Tratamiento de señal EEG. Universidad Peruana Cayetano Heredia, Lima, Perú.
+
 [4] Gramfort, A. et al. (2014). MNE software for processing MEG and EEG data. NeuroImage, 86:446–460. https://doi.org/10.1016/j.neuroimage.2013.10.027
+
 [5] Yang, X. et al. (2021). Multimodal ICA in Alzheimer’s disease detection. Biomedicines, 9(4), 386. https://doi.org/10.3390/biomedicines9040386
+
 [6] Laouhingamaye, F. et al. (2021). EEG artifact removal using ICA for sleep disorder detection. Journal of Archaeological Science, 105269. https://doi.org/10.1016/j.jas.2020.105269
+
 [7] Shahshahani, M., & Mahdiani, H. (2022). Separación ciega de fuentes desde la perspectiva de los algoritmos ICA: una revisión. In Proc. IEEE CISES 2022, pp. 1–6. DOI: https://doi.org/10.1109/CISES54857.2022.9844373
+
 
 
 
