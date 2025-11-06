@@ -19,6 +19,7 @@ El ICA ha demostrado ser una herramienta versátil en múltiples aplicaciones de
 Por ejemplo, en el estudio de la enfermedad de Alzheimer, se ha empleado ICA para identificar alteraciones en la conectividad cortical a partir de datos combinados de EEG, MEG y fMRI [5]. De manera similar, en el diagnóstico de trastornos del sueño, como el insomnio o la apnea, esta técnica contribuye a limpiar los registros polisomnográficos y a mejorar la detección de eventos fisiológicos relevantes [6].
 
 Por otra parte, en el desarrollo de interfaces cerebro-computadora (BCI) y sistemas de monitorización epiléptica, el ICA se utiliza para extraer características relevantes de los potenciales evocados y reducir artefactos en tiempo real. En estos entornos, el algoritmo FastICA destaca por su baja complejidad computacional y su rápida convergencia, lo que permite su implementación en sistemas embebidos o FPGA orientados a aplicaciones biomédicas de baja latencia [7].
+
 --- 
 ## Metodología  
 
@@ -42,7 +43,7 @@ El espectro de densidad de potencia (PSD) antes y después del filtrado mostró 
 Se aplicó el algoritmo Picard ICA con ocho componentes, obteniendo la descomposición mostrada en la siguiente figura.  
 
 <div align="center">
-  <img src="Figura1.png" alt="Componentes ICA000–ICA007" width="600">
+  <img src="ImagenesLab9/Figura1.png" alt="Componentes ICA000–ICA007" width="600">
   <p>Figura 1. Señales temporales de los componentes ICA000–ICA007.</p>
 </div>
 
@@ -61,22 +62,22 @@ La inspección de los componentes ICA004–ICA007 permitió identificar las sigu
 Estas observaciones justificaron la eliminación manual de los componentes 4, 5, 6 y 7.  
 
 <div align="center">
-  <img src="ICA4.png" alt="Componente ICA004" width="400">
+  <img src="ImagenesLab9/ICA4.png" alt="Componente ICA004" width="400">
   <p>Figura 2. Propiedades del componente ICA004.</p>
 </div>
 
 <div align="center">
-  <img src="ICA5.png" alt="Componente ICA005" width="400">
+  <img src="ImagenesLab9/ICA5.png" alt="Componente ICA005" width="400">
   <p>Figura 3. Propiedades del componente ICA005.</p>
 </div>
 
 <div align="center">
-  <img src="ICA6.png" alt="Componente ICA006" width="400">
+  <img src="ImagenesLab9/ICA6.png" alt="Componente ICA006" width="400">
   <p>Figura 4. Propiedades del componente ICA006.</p>
 </div>
 
 <div align="center">
-  <img src="ICA7.png" alt="Componente ICA007" width="400">
+  <img src="ImagenesLab9/ICA7.png" alt="Componente ICA007" width="400">
   <p>Figura 5. Propiedades del componente ICA007.</p>
 </div>
 
@@ -89,7 +90,7 @@ Para contrastar la selección manual, se utilizó el método automático `find_b
 El gráfico siguiente muestra el puntaje de correlación de cada componente. Las barras rojas indican alta probabilidad de corresponder a un artefacto muscular.  
 
 <div align="center">
-  <img src="ICAautomatico.png" alt="Puntuaciones automáticas de artefactos" width="600">
+  <img src="ImagenesLab9/ICAautomatico.png" alt="Puntuaciones automáticas de artefactos" width="600">
   <p>Figura 6. Puntuaciones de detección automática de artefactos musculares.</p>
 </div>
 
@@ -108,7 +109,7 @@ Tras excluir los componentes ICA004–ICA007, se reconstruyó la señal EEG limp
 La comparación entre la señal original (en rojo) y la señal procesada (en negro) muestra una reducción evidente del ruido de alta frecuencia, sin pérdida de la información cortical.  
 
 <div align="center">
-  <img src="ICAantesdespues.png" alt="Comparación señal EEG antes y después" width="700">
+  <img src="ImagenesLab9/ICAantesdespues.png" alt="Comparación señal EEG antes y después" width="700">
   <p>Figura 7. Comparación entre señal EEG original (rojo) y limpia (negro) después del proceso ICA.</p>
 </div>
 
@@ -147,5 +148,6 @@ La comparación entre las señales original y limpia evidenció una reducción s
 [5] Yang, X. et al. (2021). Multimodal ICA in Alzheimer’s disease detection. Biomedicines, 9(4), 386. https://doi.org/10.3390/biomedicines9040386
 [6] Laouhingamaye, F. et al. (2021). EEG artifact removal using ICA for sleep disorder detection. Journal of Archaeological Science, 105269. https://doi.org/10.1016/j.jas.2020.105269
 [7] Shahshahani, M., & Mahdiani, H. (2022). Separación ciega de fuentes desde la perspectiva de los algoritmos ICA: una revisión. In Proc. IEEE CISES 2022, pp. 1–6. DOI: https://doi.org/10.1109/CISES54857.2022.9844373
+
 
 
