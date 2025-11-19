@@ -1,11 +1,15 @@
 # Análisis Espectral Avanzado en Señales Biomédicas
 ## Comparativa Técnica: FFT, STFT y CWT
 
+
+>El presente archivo, explica el tema seleccionado por el grupo, cubriendo los aspectos de explicación de los métodos, revisión de implementación en artículos científicos, y se adjunta una presentación PDF de la explicación
+---
+
 ## I. Introducción
 
 El análisis de señales fisiológicas (como el electrocardiograma **ECG**, electroencefalograma **EEG** o electromiograma **EMG**) es fundamental para el diagnóstico médico moderno. Sin embargo, estas señales rara vez presentan información clara a simple vista en el dominio del tiempo (amplitud vs. tiempo).
 
-Para extraer características ocultas (biomarcadores, arritmias, patologías), es necesario transformar la señal al **dominio de la frecuencia**.
+Para extraer características ocultas (biomarcadores, arritmias, patologías), es necesario transformar la señal al **dominio de la frecuencia** [2].
 
 ![Comparativa Tiempo vs Frecuencia](Imagenes/imagen_01.png)
 *Fig 1. Representación conceptual de una señal vista en el dominio temporal (izquierda) y su descomposición espectral (derecha).*
@@ -35,7 +39,7 @@ Donde:
 
 #### Limitación: La Ceguera Temporal
 La FFT integra la información sobre **toda la duración** de la señal.
-> **Problema:** Al observar el espectro $|X[k]|$, sabemos *qué* frecuencias existen, pero perdemos totalmente la información de *cuándo* ocurrieron. Si un paciente sufre una arritmia de 2 segundos dentro de un registro de 1 hora, la FFT "diluirá" ese evento y será indetectable.
+> **Problema:** Al observar el espectro $|X[k]|$, sabemos *qué* frecuencias existen, pero perdemos totalmente la información de *cuándo* ocurrieron. Si un paciente sufre una arritmia de 2 segundos dentro de un registro de 1 hora, la FFT "diluirá" ese evento y será indetectable [1].
 
 ---
 
@@ -74,51 +78,131 @@ Donde:
 ![Comparativa Resolución STFT vs Wavelet](Imagenes/imagen_04.png)
 *Fig 4. Comparación de teselado tiempo-frecuencia. A la izquierda (STFT) la resolución es fija. A la derecha (CWT), la resolución se adapta: ventanas cortas para frecuencias altas y largas para bajas, ideal para señales biológicas.*
 
-#### Ventaja en Biomedicina
-La CWT imita la naturaleza de las señales biomédicas (que suelen tener transitorios rápidos de alta frecuencia y ritmos de fondo lentos), permitiendo detectar morfologías complejas como el complejo QRS en ECG o espigas en EEG con precisión superior.
+#### Visualización de la Ventaja (EEG y ECG)
+La CWT es superior visualmente para detectar eventos transitorios.
+
+![Comparativa Visual STFT vs CWT](Imagenes/imagen_05.png)
+*Fig 5. Análisis de una señal EEG. Note cómo el espectrograma STFT (centro) se ve "pixelado" o borroso, mientras que el escalograma CWT (abajo) define nítidamente el inicio de los eventos [4].*
+
+![Escalograma ECG](Imagenes/imagen_06.png)
+*Fig 6. Representación Tiempo-Escala de un ECG. Los picos brillantes (rojo/amarillo) corresponden a la alta energía del complejo QRS, permitiendo su detección automática [3].*
 
 ---
 
-## III. Estado del Arte y Evidencia Académica
+## III. Cuadro Comparativo Técnico
+
+A modo de resumen, se presenta la siguiente tabla de decisión para aplicaciones biomédicas:
+
+| Característica | **FFT** (Fourier) | **STFT** (Short-Time) | **CWT** (Wavelet) |
+| :--- | :--- | :--- | :--- |
+| **Resolución Temporal** | Nula (Solo Frecuencia) | Fija (Depende de ventana) | **Variable** (Óptima) |
+| **Resolución Frecuencial** | Excelente | Fija | Variable |
+| **Costo Computacional** | Muy Bajo ($O(N \log N)$) | Bajo / Medio | Alto (Intensivo) |
+| **Salida Visual** | Espectro 1D | Espectrograma 2D | Escalograma 2D |
+| **Aplicación Ideal** | Variabilidad Cardíaca (HRV), Bandas promedio EEG | Eventos largos (Sueño, Respiración) | **Transitorios** (Espigas, QRS, EMG) |
+
+---
+
+## IV. Estado del Arte y Evidencia Académica
 
 Para validar la aplicación de estas transformadas, se analizan dos documentos fundamentales: el estándar clínico internacional para FFT y un estudio de vanguardia (2025) sobre STFT/CWT en Inteligencia Artificial.
 
 ### A. El Estándar FFT: Variabilidad de la Frecuencia Cardíaca
-> **Referencia:** Task Force of the European Society of Cardiology and the North American Society of Pacing and Electrophysiology. (1996). *"Heart rate variability: standards of measurement, physiological interpretation and clinical use"*. European Heart Journal.
+> **Estudio analizado:** Task Force of the ESC (1996) [1].
 
 **Análisis de la Evidencia:**
 Este documento de consenso establece cómo la **FFT** debe usarse para evaluar el sistema nervioso autónomo. A pesar de las limitaciones temporales de la FFT, es la herramienta ideal para registros largos (5 minutos a 24 horas) donde se asume cierta estabilidad estadística.
 
 ![Espectro de Potencia HRV - Task Force](Imagenes/imagen_05_taskforce.png)
-*Fig 5. Análisis de Densidad Espectral de Potencia (PSD) extraído del documento de la Task Force (Fig. 4). Se observan claramente los picos de energía obtenidos mediante FFT:*
+*Fig 7. Análisis de Densidad Espectral de Potencia (PSD) extraído del documento de la Task Force (Fig. 4). Se observan claramente los picos de energía obtenidos mediante FFT:*
 *   **VLF/LF (Very Low/Low Frequency):** Asociados a mecanismos simpáticos y hormonales.
 *   **HF (High Frequency):** Asociado al ritmo respiratorio (parasimpático).
-*   *Interpretación:* La separación nítida de estas bandas valida el uso de FFT para diagnósticos basales, aunque no pueda detectar en qué segundo ocurrió un cambio de estrés.
-
----
+*   *Interpretación:* La separación nítida de estas bandas valida el uso de FFT para diagnósticos basales.
 
 ### B. Comparativa Moderna: STFT y CWT en Deep Learning
-> **Referencia:** Lekkas, G., et al. (2025). *"Time–Frequency Transformations for Enhanced Biomedical Signal Classification with Convolutional Neural Networks"*. MDPI BioMedInformatics.
+> **Estudio analizado:** Lekkas et al. (2025) [2].
 
 **1. De 1D a 2D: La Transformación**
 El estudio propone que para clasificar patologías complejas (arritmias/epilepsia) usando Inteligencia Artificial, la señal temporal simple es insuficiente. Se compara el uso de transformadas de tiempo-frecuencia para convertir la señal en "imágenes" que una red neuronal pueda interpretar.
 
 ![Transformación de Señal - Lekkas 2025](Imagenes/imagen_06_lekkas_transform.png)
-*Fig 6. Preprocesamiento de la señal biomédica (Fuente: Lekkas et al., 2025). La señal cruda (Raw) pasa por etapas de filtrado y transformación. La representación en tiempo-frecuencia (CWT/STFT) revela patrones morfológicos que son invisibles en la gráfica de amplitud temporal.*
+*Fig 8. Preprocesamiento de la señal biomédica (Fuente: Lekkas et al., 2025). La señal cruda (Raw) pasa por etapas de filtrado y transformación. La representación en tiempo-frecuencia (CWT/STFT) revela patrones morfológicos invisibles en el tiempo.*
 
 **2. Resultados Cuantitativos**
-Los autores entrenaron modelos de Redes Neuronales Convolucionales (CNN) alimentados con estas transformaciones. Los resultados demuestran la superioridad de preservar la información temporal y frecuencial simultáneamente.
+Los autores entrenaron modelos de Redes Neuronales Convolucionales (CNN) alimentados con estas transformaciones.
 
 ![Tabla de Resultados - Lekkas 2025](Imagenes/imagen_07_lekkas_results.png)
-*Fig 7. Comparativa de desempeño (Fuente: Lekkas et al., 2025). Se evidencia que:*
+*Fig 9. Comparativa de desempeño (Fuente: Lekkas et al., 2025). Se evidencia que:*
 *   Los métodos basados en transformadas de tiempo-frecuencia (como STFT y CWT) superan a los métodos clásicos.
-*   Se alcanza una alta precisión (**Accuracy**) y sensibilidad en la clasificación, demostrando que visualizar "cuándo" ocurren las frecuencias (vía CWT/STFT) es crítico para el diagnóstico automatizado moderno.
+*   Se alcanza una alta precisión (**Accuracy > 98%**) y sensibilidad en la clasificación, demostrando que visualizar "cuándo" ocurren las frecuencias es crítico para el diagnóstico automatizado moderno.
+
+---
+
+## V. Implementación Práctica (GitHub)
+
+Para demostrar la aplicación práctica de la teoría, se seleccionó un repositorio que implementa CWT para la extracción de características en ECG.
+
+*   **Repositorio:** ECG Feature Extraction
+*   **Enlace:** [https://github.com/Soroushsrd/ECG_Feature_Extraction](https://github.com/Soroushsrd/ECG_Feature_Extraction)
+*   **Librerías:** `PyWavelets`, `NeuroKit2`.
+
+### Ejemplo de Código (Python)
+A continuación, un ejemplo de cómo se implementan las tres transformadas utilizando las librerías estándar de Python (`scipy` y `pywt`), basado en la lógica del repositorio seleccionado:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fft import fft
+from scipy.signal import stft
+import pywt
+
+# 1. Generar señal sintética (Ejemplo: 10 segundos a 250Hz)
+fs = 250
+t = np.linspace(0, 10, 10*fs)
+# Señal con frecuencia variable (Chirp) para probar transformadas
+signal = np.sin(2 * np.pi * (5 + 2*t) * t) 
+
+# --- A. Implementación FFT ---
+def compute_fft(signal, fs):
+    N = len(signal)
+    yf = fft(signal)
+    xf = np.linspace(0.0, fs/2.0, N//2)
+    return xf, 2.0/N * np.abs(yf[:N//2])
+
+# --- B. Implementación STFT ---
+def compute_stft(signal, fs):
+    # nperseg define el ancho de la ventana (Trade-off tiempo/frecuencia)
+    f, t_spec, Zxx = stft(signal, fs, nperseg=256)
+    return f, t_spec, np.abs(Zxx)
+
+# --- C. Implementación CWT ---
+def compute_cwt(signal, fs):
+    scales = np.arange(1, 128)
+    # 'cmor' (Complex Morlet) es estándar para biomédica
+    coeffs, freqs = pywt.cwt(signal, scales, 'cmor', sampling_period=1/fs)
+    return freqs, np.abs(coeffs)**2
+
+print("Funciones de transformación listas para procesamiento.")
+```
+
+---
+
+## VI. Referencias Bibliográficas
+
+[1] Task Force of the European Society of Cardiology and the North American Society of Pacing and Electrophysiology. Heart rate variability: standards of measurement, physiological interpretation and clinical use. Eur Heart J. 1996;17(3):354–81. Disponible en: [https://academic.oup.com/eurheartj/article/17/3/354/466726](https://academic.oup.com/eurheartj/article/17/3/354/466726)
+
+[2] Lekkas G, Karavaras A, Nikolaidou M. Time–Frequency Transformations for Enhanced Biomedical Signal Classification with Convolutional Neural Networks. BioMedInformatics. 2025; 5(1):7. Disponible en: [https://www.mdpi.com/2673-7426/5/1/7](https://www.mdpi.com/2673-7426/5/1/7)
+
+[3] Addison PS. Wavelet transforms and the ECG: a review. Physiol Meas. 2005;26(5):R155-99. Disponible en: [https://iopscience.iop.org/article/10.1088/0967-3334/26/5/R01](https://iopscience.iop.org/article/10.1088/0967-3334/26/5/R01)
+
+[4] Kiymik MK, Akin M, Subasi A. Comparison of STFT and wavelet transform methods in determining epileptic seizure activity in EEG signals. Comput Biol Med. 2005;35(7):573-88. Disponible en: [https://pubmed.ncbi.nlm.nih.gov/15878465/](https://pubmed.ncbi.nlm.nih.gov/15878465/)
 
 ---
 
 ## Aporte de cada integrante
-| Integrante               | Aporte   |
-|--------------------------|----------|
-| Alvaro Untiveros         | 33.33 %  |
-| Lucero Munive            | 33.33 %  |
-| Fiorella Pérez           | 33.33 %  |
+
+| Integrante | Aporte |
+| :--- | :--- |
+| Alvaro Untiveros | 33.33 % |
+| Lucero Munive | 33.33 % |
+| Fiorella Pérez | 33.33 % |
