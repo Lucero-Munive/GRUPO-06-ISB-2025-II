@@ -12,7 +12,8 @@
 - [4. Resultados](#4-resultados)
 - [5. Discusión](#5-discusión)
 - [6. Conclusiones](#6-conclusiones)
-- [7. Participación de Integrantes](#7-participación-de-integrantes)
+- [7. Participación de Integrantes](#7-bibliografía)
+- [8. Participación de Integrantes](#8-participación-de-integrantes)
 
 ---
 
@@ -120,13 +121,22 @@ Desempeño del algoritmo `NeuroKit2` en condiciones fisiológicas ideales (refer
 
 ## 5. Discusión
 
-El análisis de las señales reveló diferencias significativas en el desempeño de los algoritmos según la morfología de la onda.
+Los resultados obtenidos permiten analizar el comportamiento de la señal ECG tanto en condiciones patológicas (trigeminismo) como en ritmo sinusal normal, así como evaluar el desempeño relativo de los distintos métodos de detección aplicados. En primer lugar, la Figura 3 muestra la señal de trigeminismo original, donde se aprecia claramente el patrón repetitivo latido normal – latido ectópico – latido normal, característico de esta arritmia. 
 
-En primer lugar, los métodos manuales enfrentaron dificultades considerables al procesar el trigeminismo. La irregularidad en la amplitud de los complejos ventriculares prematuros (extrasístoles) complicó la definición de un umbral estático adaptativo, lo que puede derivar en falsos positivos o falsos negativos si no se ajusta la ventana de integración correctamente.
+Posteriormente, al aplicar el algoritmo de detección manual de picos R, la Figura 4 evidencia que la metodología basada en derivadas y energía es capaz de identificar buena parte de los complejos QRS; sin embargo, también muestra que varios de los picos detectados no corresponden estrictamente a picos R reales. Esto ocurre porque la señal de trigeminismo presenta una morfología ventricular irregular, donde algunos complejos ectópicos poseen amplitudes reducidas o pendientes menos pronunciadas, lo que induce al método manual a confundir pequeñas fluctuaciones o componentes auriculares como posibles picos R. Este comportamiento resalta una limitación inherente de los algoritmos basados en umbrales y derivadas: su desempeño depende fuertemente de que la señal mantenga una morfología relativamente estable, condición que no se cumple en este tipo de arritmia. 
 
-En contraste, la librería NeuroKit2 demostró una robustez superior, especialmente en el ECG Normal (NSR) , donde la detección de ondas P, QRS y T fue consistente y precisa debido a la periodicidad de la señal. Sin embargo, en la señal de Trigeminismo, aunque el algoritmo detectó correctamente los complejos QRS, la identificación de la onda P previa al latido prematuro presentó retos. Esto es fisiológicamente coherente, ya que los latidos ectópicos ventriculares a menudo no están precedidos por una despolarización auricular normal o esta se encuentra superpuesta en la onda T anterior.
+De forma complementaria, cuando se evalúa la detección automática mediante NeuroKit2, la Figura 6 muestra una segmentación más completa, ya que el algoritmo identifica simultáneamente ondas P, complejos QRS y ondas T. No obstante, a pesar de su mayor precisión global, se observan ciertas confusiones entre ondas P y picos R, así como entre picos R y ondas T, especialmente en las zonas donde la arritmia genera variaciones abruptas en la amplitud o la duración de los ciclos. Estas inconsistencias se visualizan claramente en la superposición de algunos marcadores, lo que sugiere que, si bien el modelo fisiológico subyacente de NeuroKit2 es más robusto, la morfología anómala del trigeminismo puede desafiar incluso a los algoritmos automáticos avanzados. 
 
-Finalmente, la comparación gráfica entre ambas señales evidencia la pérdida de la regularidad del intervalo R-R en el trigeminismo frente a la estabilidad del NSR, validando la importancia de herramientas de procesamiento que puedan adaptarse a la variabilidad de la frecuencia cardiaca patológica.
+Por otra parte, la Figura 7, muestra la comparación de la señal trigeminada y la señal de ritmo sinusal normal (NSR), lo cual permite observar cómo las variaciones estructurales entre ciclos afectan la detección. Mientras que la señal NSR presenta una periodicidad estable y morfología homogénea, la señal patológica introduce irregularidades en la amplitud y forma de las ondas. Finalmente, la Figura 8, correspondiente a la detección automática en una señal normal, confirma que NeuroKit2 alcanza su máximo desempeño en condiciones fisiológicas ideales. Aquí, el algoritmo detecta con alta precisión las ondas P, QRS y T, manteniendo coherencia temporal entre ciclos y localizando cada componente en su posición típica dentro del intervalo PR, QRS y QT. 
+
+
+Metodologia
+
+	1. Vincular la placa BITalino a la PC mediante Bluetooh y configurar el canal A4 como EEG estableciendo una frecuencia de muestreo de 1000 Hz (cumple el criterio de Nyquist para 48Hz)
+	2. Con la piel correctamente limpia, colocar los electrodos como se muestra en la imagen:
+	3. 
+<img width="2155" height="1086" alt="image" src="https://github.com/user-attachments/assets/08f3a1fb-6ec6-4205-a4b2-5172591ca281" />
+
 
 ---
 
@@ -140,7 +150,19 @@ Del presente trabajo de laboratorio se concluye que:
 
 ---
 
-## Participación de Integrantes
+## 7. Bibliografía
+
+[1] “Descripcion de un ECG,” *Evidencias de fisiología de Iris*, Mar. 30, 2013. [Online].  Available: https://irisperaza25.blogspot.com/2013/03/descripcion-de-un-ecg.html (accessed Nov. 25, 2025).
+
+[2] K. Takayanagi, A. Okamoto, H. Higuchi, et al., “Ectopic cycle length estimation from the quantified distribution patterns of ventricular bigeminy and trigeminy,” *Rhythm O₂*, vol. 1, no. 3, Article 100032, 2021.
+
+[3] B. A. Teplitzky, M. McRoberts, y H. Ghanbari, “Deep learning for comprehensive ECG annotation,” *Heart Rhythm*, vol. 17, no. 5 Pt B, pp. 881–888, 2020.
+
+
+---
+
+
+## 8 Participación de Integrantes
 
 | Integrante | Aporte |
 | :--- | :--- |
@@ -148,6 +170,7 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
 
