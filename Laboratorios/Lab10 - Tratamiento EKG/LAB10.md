@@ -159,8 +159,8 @@ Del presente trabajo de laboratorio se concluye que:
 | :--- | :--- |
 | Alvaro Untiveros | 33.33 % |
 | Lucero Munive | 33.33 % |
-
 | Fiorella Pérez | 33.33 % |
+
 
 
 
