@@ -23,19 +23,22 @@ El **Electrocardiograma (EKC o ECG)** es la representación gráfica de la activ
 <div align="center">
   <img src="Lab10_Imagenes/ecg_standard_pattern.JPG" alt="Patrón de ECG Estándar">
   <br>
-  <em>Figura 1: Componentes básicos de una señal de ECG normal.</em>
+  <em>Figura 1: Componentes básicos de una señal de ECG normal [1].</em>
 </div>
+<br>
 
 Una señal de ECG estándar se compone de una serie de ondas y complejos que reflejan eventos electrofisiológicos específicos:
 *   **Onda P:** Representa la despolarización auricular, el inicio del ciclo cardiaco.
 *   **Complejo QRS:** Corresponde a la despolarización ventricular, caracterizado por ser la deflexión de mayor amplitud.
 *   **Onda T:** Refleja la repolarización ventricular, marcando la recuperación eléctrica del corazón antes del siguiente latido.
 
-En este laboratorio, se analiza una patología específica conocida como **Trigeminismo** (o *Trigeminy*). Esta es una arritmia ventricular caracterizada por un patrón rítmico recurrente donde *dos latidos sinusales normales son seguidos sistemáticamente por un complejo prematuro (extrasístole). Este patrón altera la regularidad de los intervalos R-R y modifica la morfología de la señal, presentando desafíos únicos para los algoritmos de detección automática en comparación con un Ritmo Sinusal Normal (NSR).
+En este laboratorio, se analiza una patología específica conocida como **Trigeminismo** (o *Trigeminy*). Esta es una arritmia ventricular caracterizada por un patrón rítmico recurrente donde *dos latidos sinusales normales son seguidos sistemáticamente por un complejo prematuro (extrasístole). Este patrón altera la regularidad de los intervalos R-R y modifica la morfología de la señal, presentando desafíos únicos para los algoritmos de detección automática en comparación con un Ritmo Sinusal Normal (NSR) [2].
 
-![Patrón de ECG Trigeminismo](Lab10_Imagenes/ecg_trigeminy_pattern.png)
-
-*Figura 2: Patrón ECG carácterísticode del Trigeminismo [1].*
+<div align="center">
+  <img src="Lab10_Imagenes/ecg_trigeminy_pattern.png" alt="Patrón de ECG Trigeminismo">
+  <br>
+  <em>Figura 2: Patrón ECG carácterísticode del Trigeminismo [2].</em>
+</div>
 
 ---
 
@@ -145,6 +148,7 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
 
