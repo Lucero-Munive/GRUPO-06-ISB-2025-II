@@ -129,15 +129,6 @@ De forma complementaria, cuando se evalúa la detección automática mediante Ne
 
 Por otra parte, la Figura 7, muestra la comparación de la señal trigeminada y la señal de ritmo sinusal normal (NSR), lo cual permite observar cómo las variaciones estructurales entre ciclos afectan la detección. Mientras que la señal NSR presenta una periodicidad estable y morfología homogénea, la señal patológica introduce irregularidades en la amplitud y forma de las ondas. Finalmente, la Figura 8, correspondiente a la detección automática en una señal normal, confirma que NeuroKit2 alcanza su máximo desempeño en condiciones fisiológicas ideales. Aquí, el algoritmo detecta con alta precisión las ondas P, QRS y T, manteniendo coherencia temporal entre ciclos y localizando cada componente en su posición típica dentro del intervalo PR, QRS y QT. 
 
-
-Metodologia
-
-	1. Vincular la placa BITalino a la PC mediante Bluetooh y configurar el canal A4 como EEG estableciendo una frecuencia de muestreo de 1000 Hz (cumple el criterio de Nyquist para 48Hz)
-	2. Con la piel correctamente limpia, colocar los electrodos como se muestra en la imagen:
-	3. 
-<img width="2155" height="1086" alt="image" src="https://github.com/user-attachments/assets/08f3a1fb-6ec6-4205-a4b2-5172591ca281" />
-
-
 ---
 
 ## 6. Conclusiones
@@ -170,6 +161,7 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
 
