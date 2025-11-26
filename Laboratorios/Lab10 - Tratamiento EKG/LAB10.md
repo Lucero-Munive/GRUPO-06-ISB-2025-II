@@ -20,9 +20,11 @@
 
 El **Electrocardiograma (EKC o ECG)** es la representación gráfica de la actividad eléctrica del corazón en función del tiempo. Es una herramienta fundamental en la práctica clínica para el diagnóstico de diversas cardiopatías y trastornos del ritmo.
 
-![Patrón de ECG Estándar](Lab10_Imagenes/ecg_standard_pattern.JPG)
-
-*Figura 1: Componentes básicos de una señal de ECG normal.*
+<div align="center">
+  <img src="Lab10_Imagenes/ecg_standard_pattern.JPG" alt="Patrón de ECG Estándar">
+  <br>
+  <em>Figura 1: Componentes básicos de una señal de ECG normal.</em>
+</div>
 
 Una señal de ECG estándar se compone de una serie de ondas y complejos que reflejan eventos electrofisiológicos específicos:
 *   **Onda P:** Representa la despolarización auricular, el inicio del ciclo cardiaco.
@@ -143,6 +145,7 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
 
