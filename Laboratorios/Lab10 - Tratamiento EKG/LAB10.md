@@ -20,7 +20,8 @@
 
 El **Electrocardiograma (EKC o ECG)** es la representación gráfica de la actividad eléctrica del corazón en función del tiempo. Es una herramienta fundamental en la práctica clínica para el diagnóstico de diversas cardiopatías y trastornos del ritmo.
 
-![Patrón de ECG Estándar](Lab10_Imagenes/ecg_standard_pattern.jpg)
+![Patrón de ECG Estándar](Lab10_Imagenes/ecg_standard_pattern.JPG)
+
 *Figura 1: Componentes básicos de una señal de ECG normal.*
 
 Una señal de ECG estándar se compone de una serie de ondas y complejos que reflejan eventos electrofisiológicos específicos:
@@ -31,6 +32,7 @@ Una señal de ECG estándar se compone de una serie de ondas y complejos que ref
 En este laboratorio, se analiza una patología específica conocida como **Trigeminismo** (o *Trigeminy*). Esta es una arritmia ventricular caracterizada por un patrón rítmico recurrente donde *dos latidos sinusales normales son seguidos sistemáticamente por un complejo prematuro (extrasístole). Este patrón altera la regularidad de los intervalos R-R y modifica la morfología de la señal, presentando desafíos únicos para los algoritmos de detección automática en comparación con un Ritmo Sinusal Normal (NSR).
 
 ![Patrón de ECG Trigeminismo](Lab10_Imagenes/ecg_trigeminy_pattern.png)
+
 *Figura 2: Patrón ECG carácterísticode del Trigeminismo [1].*
 
 ---
@@ -83,7 +85,7 @@ A continuación, se presentan los gráficos resultantes del procesamiento de las
 ### 4.1 Señal de Trigeminismo Original
 Visualización de la señal cruda extraída del dataset, mostrando el patrón característico de la arritmia antes del filtrado.
 
-![Señal Cruda Trigeminismo](plots/raw_signal_trigeminy.png)
+![Señal Cruda Trigeminismo](Lab10_Imagenes/raw_signal_trigeminy.png)
 *Figura 3: Señal ECG cruda de la clase Trigeminismo (Fila 0) muestreada a 360 Hz.*
 
 ### 4.2 Análisis de Señal Patológica (Trigeminismo)
@@ -92,20 +94,20 @@ Se evaluaron tres enfoques distintos para la detección de eventos en la señal 
 
 | Método | Descripción y Resultado Gráfico |
 | :--- | :--- |
-| **1. Detección Manual de Picos R** | Se aplicó el algoritmo manual basado en derivadas y energía para identificar los complejos QRS.<br><br>![Detección Manual de Picos R](plots/manual_r_peaks_trigeminy.png)<br>*Figura 4: Identificación de los picos R sobre la señal filtrada.* |
-| **2. Detección Manual de Onda P** | Mediante el realce por Wavelets y envolvente de Hilbert, se intentó aislar la actividad auricular.<br><br>![Detección Manual de Onda P](plots/manual_p_wave_trigeminy.png)<br>*Figura 5: Detección de ondas P utilizando procesamiento avanzado.* |
-| **3. Detección Automática (NeuroKit2)** | Resultados obtenidos utilizando la librería especializada para segmentar P, QRS y T de forma integral.<br><br>![Detección NeuroKit - Trigeminy](plots/neurokit_trigeminy.png)<br>*Figura 6: Segmentación completa en la señal de arritmia.* |
+| **1. Detección Manual de Picos R** | Se aplicó el algoritmo manual basado en derivadas y energía para identificar los complejos QRS.<br><br>![Detección Manual de Picos R](Lab10_Imagenes/manual_r_peaks_trigeminy.png)<br>*Figura 4: Identificación de los picos R sobre la señal filtrada.* |
+| **2. Detección Manual de Onda P** | Mediante el realce por Wavelets y envolvente de Hilbert, se intentó aislar la actividad auricular.<br><br>![Detección Manual de Onda P](Lab10_Imagenes/manual_p_wave_trigeminy.png)<br>*Figura 5: Detección de ondas P utilizando procesamiento avanzado.* |
+| **3. Detección Automática (NeuroKit2)** | Resultados obtenidos utilizando la librería especializada para segmentar P, QRS y T de forma integral.<br><br>![Detección NeuroKit - Trigeminy](Lab10_Imagenes/neurokit_trigeminy.png)<br>*Figura 6: Segmentación completa en la señal de arritmia.* |
 
 ### 4.3 Comparativa: Trigeminismo vs. NSR
 Para validar los resultados, se procesó una señal de Ritmo Sinusal Normal (NSR) bajo las mismas condiciones y se comparó directamente con la patología.
 
-![Comparativa Trigeminismo vs NSR](plots/comparison_trigeminy_vs_nsr.png)
+![Comparativa Trigeminismo vs NSR](Lab10_Imagenes/comparison_trigeminy_vs_nsr.png)
 *Figura 7: (Arriba) Señal de Trigeminismo. (Centro) Señal Normal. (Abajo) Superposición de ambas para resaltar la irregularidad del ritmo y la morfología.*
 
 ### 4.4 Detección Automática en Señal Normal
 Desempeño del algoritmo `NeuroKit2` en condiciones fisiológicas ideales (referencia).
 
-![Detección NeuroKit - NSR](plots/neurokit_nsr.png)
+![Detección NeuroKit - NSR](Lab10_Imagenes/neurokit_nsr.png)
 *Figura 8: Detección robusta de complejos P, QRS y T en ritmo sinusal normal.*
 
 
@@ -141,6 +143,7 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
 
