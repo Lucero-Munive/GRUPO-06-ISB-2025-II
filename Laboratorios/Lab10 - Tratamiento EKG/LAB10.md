@@ -5,13 +5,13 @@
 **Grupo:** 6  
 
 ## Índice
-1. [Introducción](#introducción)
-2. [Objetivos](#objetivos)
-3. [Metodología](#metodología)
-4. [Resultados](#resultados)
-5. [Discusión](#discusión)
-6. [Conclusiones](#conclusiones)
-7. [Participación de Integrantes](#participación-de-integrantes)
+1. [1. Introducción](#1-introducción)
+2. [2. Objetivos](#2-objetivos)
+3. [3. Metodología](#3-metodología)
+4. [4. Resultados](#4-resultados)
+5. [5. Discusión](#5-discusión)
+6. [6. Conclusiones](#6-conclusiones)
+7. [7. Participación de Integrantes](#7-participación-de-integrantes)
 
 ---
 
@@ -138,4 +138,5 @@ Del presente trabajo de laboratorio se concluye que:
 | :--- | :--- |
 | Alvaro Untiveros | 33.33 % |
 | Lucero Munive | 33.33 % |
+
 | Fiorella Pérez | 33.33 % |
