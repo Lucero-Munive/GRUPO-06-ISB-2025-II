@@ -5,13 +5,14 @@
 **Grupo:** 6  
 
 ## Índice
-[1. Introducción](#1-introducción) 
-[2. Objetivos](#2-objetivos) 
-[3. Metodología](#3-metodología) 
-[4. Resultados](#4-resultados) 
-[5. Discusión](#5-discusión) 
-[6. Conclusiones](#6-conclusiones) 
-[7. Participación de Integrantes](#7-participación-de-integrantes) 
+
+- [1. Introducción](#1-introducción)
+- [2. Objetivos](#2-objetivos)
+- [3. Metodología](#3-metodología)
+- [4. Resultados](#4-resultados)
+- [5. Discusión](#5-discusión)
+- [6. Conclusiones](#6-conclusiones)
+- [7. Participación de Integrantes](#7-participación-de-integrantes)
 
 ---
 
@@ -19,7 +20,7 @@
 
 El **Electrocardiograma (EKC o ECG)** es la representación gráfica de la actividad eléctrica del corazón en función del tiempo. Es una herramienta fundamental en la práctica clínica para el diagnóstico de diversas cardiopatías y trastornos del ritmo.
 
-![Patrón de ECG Estándar](images/ecg_standard_pattern.png)
+![Patrón de ECG Estándar](Lab10_Imagenes/ecg_standard_pattern.jpg)
 *Figura 1: Componentes básicos de una señal de ECG normal.*
 
 Una señal de ECG estándar se compone de una serie de ondas y complejos que reflejan eventos electrofisiológicos específicos:
@@ -29,7 +30,7 @@ Una señal de ECG estándar se compone de una serie de ondas y complejos que ref
 
 En este laboratorio, se analiza una patología específica conocida como **Trigeminismo** (o *Trigeminy*). Esta es una arritmia ventricular caracterizada por un patrón rítmico recurrente donde *dos latidos sinusales normales son seguidos sistemáticamente por un complejo prematuro (extrasístole). Este patrón altera la regularidad de los intervalos R-R y modifica la morfología de la señal, presentando desafíos únicos para los algoritmos de detección automática en comparación con un Ritmo Sinusal Normal (NSR).
 
-![Patrón de ECG Trigeminismo](images/ecg_trigeminy_pattern.png)
+![Patrón de ECG Trigeminismo](Lab10_Imagenes/ecg_trigeminy_pattern.png)
 *Figura 2: Patrón ECG carácterísticode del Trigeminismo [1].*
 
 ---
@@ -140,5 +141,6 @@ Del presente trabajo de laboratorio se concluye que:
 | Lucero Munive | 33.33 % |
 
 | Fiorella Pérez | 33.33 % |
+
 
 
