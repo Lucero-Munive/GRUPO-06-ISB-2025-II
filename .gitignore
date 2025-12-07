@@ -1,5 +1,42 @@
+# === CARPETAS ESPECÍFICAS DE TU PROYECTO ===
 Laboratorios/Laboratorio 2 - Informe Bases de Datos/Emotions_ECG_database/
 Laboratorios/Laboratorio 2 - Informe Bases de Datos/Bioimpedance_databases/
 Proyecto/Software/Datasets/Datasets_Descargados/
 Proyecto/Software/Datasets/processed/
 Proyecto/Software/modelamiento/mejores_modelos/models3/
+Proyecto/Software/Datasets/
+
+# === SEGURIDAD Y CLAVES (¡CRÍTICO!) ===
+serviceAccountKey.json
+*.pem
+.env
+.env.local
+
+# === ARCHIVOS PESADOS DE INGENIERÍA BIOMÉDICA ===
+# Estos son los que pesan Gigas y rompen GitHub
+*.pkl
+*.mat
+*.parquet
+*.edf
+*.bdf
+# Ignorar crudos de OpenBCI y Respiban, pero dejar .txt normales
+OpenBCI*.txt
+S*_respiban.txt
+
+# === MODELOS DE INTELIGENCIA ARTIFICIAL ===
+# (Sin el '#', ahora sí serán ignorados)
+#*.h5
+#*.keras
+*.pt
+*.pth
+*.onnx
+
+# === FRONTEND Y PYTHON BASURA ===
+__pycache__/
+*.py[cod]
+node_modules/
+.next/
+build/
+dist/
+*.node
+*.zip

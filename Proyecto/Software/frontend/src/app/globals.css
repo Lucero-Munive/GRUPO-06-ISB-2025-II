@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 25% 96%; /* Lighter cyan-gray for background */
+    --foreground: 182 25% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 182 25% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 182 25% 20%;
+    --primary: 182 79% 29%; /* #147A7E */
+    --primary-foreground: 180 100% 97%;
+    --secondary: 180 15% 94%;
+    --secondary-foreground: 182 25% 20%;
+    --muted: 180 15% 94%;
+    --muted-foreground: 182 10% 45%;
+    --accent: 30 90% 65%; /* A warm, soft orange for accent */
+    --accent-foreground: 30 50% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 20% 88%;
+    --input: 180 20% 91%;
+    --ring: 182 79% 29%;
+    --radius: 1.25rem;
+    --chart-1: 182 79% 29%; /* Primary */
+    --chart-2: 30 90% 65%; /* Accent */
+    --chart-3: 182 40% 50%;
+    --chart-4: 200 80% 60%;
+    --chart-5: 170 60% 40%;
+    
+    --sidebar-background: hsl(var(--card));
+    --sidebar-foreground: hsl(var(--card-foreground));
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
+    --sidebar-border: hsl(var(--border));
+    --sidebar-ring: hsl(var(--ring));
+  }
+  .dark {
+    --background: 182 25% 10%;
+    --foreground: 180 15% 96%;
+    --card: 182 25% 10%;
+    --card-foreground: 180 15% 96%;
+    --popover: 182 25% 10%;
+    --popover-foreground: 180 15% 96%;
+    --primary: 182 70% 60%;
+    --primary-foreground: 182 80% 10%;
+    --secondary: 182 20% 15%;
+    --secondary-foreground: 180 15% 96%;
+    --muted: 182 20% 15%;
+    --muted-foreground: 180 10% 65%;
+    --accent: 30 80% 60%;
+    --accent-foreground: 30 50% 15%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 182 20% 20%;
+    --input: 182 20% 20%;
+    --ring: 182 70% 60%;
+    --chart-1: 182 70% 60%; /* Primary */
+    --chart-2: 30 80% 60%; /* Accent */
+    --chart-3: 182 50% 70%;
+    --chart-4: 200 80% 70%;
+    --chart-5: 170 60% 50%;
+
+    --sidebar-background: 182 25% 10%;
+    --sidebar-foreground: hsl(var(--foreground));
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
+    --sidebar-border: 182 20% 20%;
+    --sidebar-ring: hsl(var(--ring));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+tensorflow
+numpy
+scipy
+pydantic
+firebase-admin
