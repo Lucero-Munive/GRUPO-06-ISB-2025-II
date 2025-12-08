@@ -26,18 +26,57 @@ function AnalyzePageContent() {
   const { toast } = useToast();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleFileAnalysis = (content: string, fileName: string) => {
-    console.log(`Analyzing file ${fileName}`);
+  // En src/app/dashboard/analyze/page.tsx
+
+  const handleFileAnalysis = async (content: string, fileName: string) => {
+    console.log(`📡 Iniciando análisis para: ${fileName}`);
     setIsProcessing(true);
+    
     toast({
-      title: 'Analizando archivo...',
-      description: 'Tu archivo ECG está siendo procesado por CardioCalm AI.',
+      title: 'Procesando archivo...',
+      description: 'Enviando señal a CardioCalm AI para análisis.',
     });
-    // Simulate analysis delay
-    setTimeout(() => {
+
+    try {
+      // 1. CONEXIÓN REAL: Llamamos a tu API interna
+      const response = await fetch('/api/analyze-signal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          fileName, 
+          fileContent: content 
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error del servidor: ${response.statusText}`);
+      }
+
+      // 2. RECIBIR RESULTADOS
+      const data = await response.json();
+      console.log("✅ Resultados recibidos del backend:", data);
+
+      toast({
+        title: '¡Análisis Completado!',
+        description: `Nivel de ansiedad detectado: ${data.anxietyLevel}`,
+      });
+
+      // 3. REDIRECCIÓN CON DATOS
+      // Enviamos el score y el nivel como parámetros en la URL para mostrarlos en el Dashboard
+      router.push(`/dashboard?score=${data.anxietyScore}&level=${data.anxietyLevel}`);
+
+    } catch (error) {
+      console.error("Error en análisis:", error);
+      toast({
+        variant: "destructive",
+        title: "Error de Análisis",
+        description: "No se pudo conectar con el servicio de análisis.",
+      });
+    } finally {
       setIsProcessing(false);
-      router.push('/dashboard');
-    }, 2500);
+    }
   };
   
   const handleEmotionAnalysis = () => {

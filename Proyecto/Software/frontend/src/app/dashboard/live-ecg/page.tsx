@@ -4,13 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import { LineChart, Line, YAxis, ResponsiveContainer, XAxis } from "recharts";
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { useAuth } from "../../../context/AuthContext"; 
+import { useAuth } from "../../../context/AuthContext";
 // Iconos corregidos: Power para Desconexión
-import { Zap, Plug, Loader2, Heart, Power } from 'lucide-react'; 
+import { Zap, Plug, Loader2, Heart, Power } from 'lucide-react';
 
 // --- CONFIGURACIÓN BLE Y API ---
 // ¡Importante! Estas UUIDs deben coincidir con las del ESP32 firmware
-const SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c9c0f99421b1'; 
+const SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c9c0f99421b1';
 const ECG_CHARACTERISTIC_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a8';
 const WINDOW_SIZE = 300; // 300 puntos para la gráfica (6 segundos a ~50Hz)
 
@@ -24,17 +24,20 @@ export default function LiveECGPage() {
   const { user } = useAuth(); // Obtenemos el usuario logueado
   const [isConnected, setIsConnected] = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
+  // REF PARA EVITAR STALE CLOSURES EN EL CALLBACK DE BLUETOOTH
+  const isCapturingRef = useRef(false);
+
   const [chartData, setChartData] = useState<{ val: number }[]>([]);
   const dataBuffer = useRef<number[]>(new Array(WINDOW_SIZE).fill(0));
-  const fullEcgData = useRef<number[]>([]); 
+  const fullEcgData = useRef<number[]>([]);
   const serverRef = useRef<BluetoothDevice | null>(null);
   const [captureProgress, setCaptureProgress] = useState(0);
 
   // Buffer de renderizado suave
   useEffect(() => {
     const interval = setInterval(() => {
-        const snapshot = dataBuffer.current.map((val) => ({ val }));
-        setChartData(snapshot);
+      const snapshot = dataBuffer.current.map((val) => ({ val }));
+      setChartData(snapshot);
     }, 50);
 
     return () => clearInterval(interval);
@@ -44,19 +47,19 @@ export default function LiveECGPage() {
   const handleCharacteristicValueChanged = (event: Event) => {
     // Usamos 'as' para ignorar el error de tipo una vez que hemos añadido las interfaces globales
     const value = (event.target as BluetoothRemoteGATTCharacteristic).value;
-    
+
     const view = new DataView(value!.buffer);
-    const ecgValue = view.getFloat64(0, true); 
+    const ecgValue = view.getFloat64(0, true);
 
     // 1. Streaming (Gráfica en vivo)
     dataBuffer.current.shift();
     dataBuffer.current.push(ecgValue);
 
-    // 2. Captura para IA (60s)
-    if (isCapturing) {
-        fullEcgData.current.push(ecgValue);
-        const currentSeconds = fullEcgData.current.length / 250; 
-        setCaptureProgress(Math.min(100, Math.round((currentSeconds / 60) * 100)));
+    // 2. Captura para IA (60s) - USAMOS LA REF AQUÍ
+    if (isCapturingRef.current) {
+      fullEcgData.current.push(ecgValue);
+      const currentSeconds = fullEcgData.current.length / 250;
+      setCaptureProgress(Math.min(100, Math.round((currentSeconds / 60) * 100)));
     }
   };
 
@@ -64,19 +67,19 @@ export default function LiveECGPage() {
   const connectToBLE = async () => {
     // Corregimos la comprobación de tipo
     if (!('bluetooth' in navigator)) {
-         toast({ variant: "destructive", title: "Error", description: "Tu navegador no soporta Web Bluetooth." });
-         return;
+      toast({ variant: "destructive", title: "Error", description: "Tu navegador no soporta Web Bluetooth." });
+      return;
     }
     try {
       toast({ title: "Buscando...", description: "Inicia la búsqueda BLE del Wearable...", duration: 2000 });
-      
+
       const device = await navigator.bluetooth.requestDevice({
-        filters: [{ services: [SERVICE_UUID] }],
+        filters: [{ name: 'CardioCalm-Wearable' } as any],
         optionalServices: [SERVICE_UUID],
       });
 
       if (!device.gatt) throw new Error("GATT no soportado.");
-      
+
       serverRef.current = device;
       const server = await device.gatt.connect();
       const service = await server.getPrimaryService(SERVICE_UUID);
@@ -84,10 +87,10 @@ export default function LiveECGPage() {
 
       await characteristic.startNotifications();
       characteristic.addEventListener('characteristicvaluechanged', handleCharacteristicValueChanged);
-      
+
       setIsConnected(true);
       toast({ title: "Conexión Exitosa", description: `Conectado a ${device.name}`, duration: 3000 });
-      
+
     } catch (error: any) {
       console.error("Error BLE:", error);
       toast({ variant: "destructive", title: "Error de Conexión", description: error.message || "Asegúrate de que el ESP32 esté encendido y BLE esté activo." });
@@ -96,21 +99,23 @@ export default function LiveECGPage() {
 
   const startCapture = () => {
     if (!isConnected || !user) {
-        toast({ variant: "destructive", title: "Error", description: "Inicia sesión y conecta el dispositivo primero." });
-        return;
+      toast({ variant: "destructive", title: "Error", description: "Inicia sesión y conecta el dispositivo primero." });
+      return;
     }
-    
+
     fullEcgData.current = [];
     setCaptureProgress(0);
     setIsCapturing(true);
+    isCapturingRef.current = true; // ACTIVAR REF
 
     toast({ title: "Grabación Iniciada", description: "Capturando 60 segundos de ECG...", duration: 60000 });
 
     setTimeout(async () => {
       setIsCapturing(false);
-      
+      isCapturingRef.current = false; // DESACTIVAR REF
+
       toast({ title: "Grabación Completa", description: "Enviando datos a la IA en la nube...", duration: 5000 });
-      
+
       const dataToSend = fullEcgData.current;
       const fs = Math.round(dataToSend.length / 60);
 
@@ -118,23 +123,23 @@ export default function LiveECGPage() {
         const response = await fetch(CLOUD_API_PREDICT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ 
-            data: dataToSend, 
+          body: JSON.stringify({
+            data: dataToSend,
             fs: fs,
             userId: user.uid // ENVIAMOS EL UID DEL USUARIO LOGUEADO
           }),
         });
 
         const result = await response.json();
-        
+
         if (result.status === "success") {
-            toast({
-                title: "Análisis Finalizado",
-                description: `Predicción: ${result.prediction} con ${(result.confidence * 100).toFixed(1)}% de confianza.`,
-                duration: 8000
-            });
+          toast({
+            title: "Análisis Finalizado",
+            description: `Predicción: ${result.prediction} con ${(result.confidence * 100).toFixed(1)}% de confianza.`,
+            duration: 8000
+          });
         } else {
-             throw new Error(result.detail || "Error desconocido en el servidor.");
+          throw new Error(result.detail || "Error desconocido en el servidor.");
         }
       } catch (error) {
         console.error("Error en el análisis de IA:", error);
@@ -143,14 +148,15 @@ export default function LiveECGPage() {
 
     }, 60000); // 60 segundos
   };
-  
+
   const disconnectBLE = () => {
-      if(serverRef.current && serverRef.current.gatt && serverRef.current.gatt.connected) {
-          serverRef.current.gatt.disconnect();
-          setIsConnected(false);
-          setIsCapturing(false);
-          toast({ title: "Desconectado", description: "Dispositivo BLE liberado.", duration: 3000 });
-      }
+    if (serverRef.current && serverRef.current.gatt && serverRef.current.gatt.connected) {
+      serverRef.current.gatt.disconnect();
+      setIsConnected(false);
+      setIsCapturing(false);
+      isCapturingRef.current = false;
+      toast({ title: "Desconectado", description: "Dispositivo BLE liberado.", duration: 3000 });
+    }
   }
 
   return (
@@ -173,17 +179,17 @@ export default function LiveECGPage() {
         <div className="absolute top-4 right-4 z-10 bg-black/5 p-2 rounded text-xs">
           ECG Real-time
         </div>
-        
+
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData}>
             <YAxis domain={['auto', 'auto']} hide={true} />
             <XAxis hide={true} />
-            <Line 
-              type="monotone" 
-              dataKey="val" 
-              stroke="#2563eb" 
-              strokeWidth={2} 
-              dot={false} 
+            <Line
+              type="monotone"
+              dataKey="val"
+              stroke="#2563eb"
+              strokeWidth={2}
+              dot={false}
               isAnimationActive={false}
             />
           </LineChart>
@@ -191,31 +197,31 @@ export default function LiveECGPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        
-        <Button 
-            onClick={isConnected ? disconnectBLE : connectToBLE}
-            disabled={isCapturing}
-            className={`w-full h-14 font-bold ${isConnected ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700'}`}
+
+        <Button
+          onClick={isConnected ? disconnectBLE : connectToBLE}
+          disabled={isCapturing}
+          className={`w-full h-14 font-bold ${isConnected ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700'}`}
         >
-            {isConnected ? <><Power className="mr-2 h-5 w-5" /> Desconectar</> : <><Plug className="mr-2 h-5 w-5" /> Conectar Wearable</>}
+          {isConnected ? <><Power className="mr-2 h-5 w-5" /> Desconectar</> : <><Plug className="mr-2 h-5 w-5" /> Conectar Wearable</>}
         </Button>
-        
-        <Button 
-            onClick={startCapture} 
-            disabled={!isConnected || isCapturing} 
-            className={`w-full h-14 font-bold col-span-2 ${isCapturing ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-green-600 hover:bg-green-700'}`}
+
+        <Button
+          onClick={startCapture}
+          disabled={!isConnected || isCapturing}
+          className={`w-full h-14 font-bold col-span-2 ${isCapturing ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-green-600 hover:bg-green-700'}`}
         >
-            {isCapturing ? (
-                <div className="flex items-center justify-center w-full">
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" /> 
-                    Grabando {Math.floor(fullEcgData.current.length / 250)}/60s 
-                    <div className="ml-4 w-1/3 bg-gray-200 rounded-full h-2.5">
-                        <div className="bg-green-700 h-2.5 rounded-full" style={{ width: `${captureProgress}%` }}></div>
-                    </div>
-                </div>
-            ) : (
-                <><Zap className="mr-2 h-5 w-5" /> Iniciar Análisis de 60s</>
-            )}
+          {isCapturing ? (
+            <div className="flex items-center justify-center w-full">
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Grabando {Math.floor(fullEcgData.current.length / 250)}/60s
+              <div className="ml-4 w-1/3 bg-gray-200 rounded-full h-2.5">
+                <div className="bg-green-700 h-2.5 rounded-full" style={{ width: `${captureProgress}%` }}></div>
+              </div>
+            </div>
+          ) : (
+            <><Zap className="mr-2 h-5 w-5" /> Iniciar Análisis de 60s</>
+          )}
         </Button>
       </div>
     </div>

@@ -27,30 +27,46 @@ export type SignalAnalysisResponse = {
     pnn50: number;
     meanRr: number;
     sdrr: number;
-    lfHfRatio: string; // Could be number or string like 'N/A'
+    lfHfRatio: string;
   };
 };
-
 export async function POST(request: Request) {
-  // In the future, you would get the raw data from the request body:
-  // const rawData = await request.text();
-  // And then send `rawData` to your Python backend.
+  try {
+    // 1. LEER DATOS REALES DEL FRONTEND
+    const body = await request.json();
+    const { fileName, fileContent } = body;
+    
+    // Esto confirmará en tu terminal que el archivo llegó al servidor
+    console.log(`📥 API Route recibió el archivo: ${fileName}`);
+    console.log(`📝 Tamaño del contenido: ${fileContent ? fileContent.length : 0} caracteres`);
 
-  // For demonstration, we'll simulate a delay and return mock data.
-  await new Promise(resolve => setTimeout(resolve, 1500));
+    // --- AQUÍ ES DONDE CONECTAREMOS PYTHON MÁS ADELANTE ---
+    // const pythonResponse = await fetch('URL_DE_TU_PYTHON_BACKEND', ...);
+    // -------------------------------------------------------
 
-  // Mock analysis result, simulating what the Python backend would return.
-  const mockResult: SignalAnalysisResponse = {
-    anxietyLevel: 'Alto',
-    anxietyScore: 82,
-    metrics: {
-      rmssd: 38,
-      pnn50: 11,
-      meanRr: 780,
-      sdrr: 58,
-      lfHfRatio: '2.1',
-    },
-  };
+    // Simulamos el tiempo de procesamiento de la IA (1.5 segundos)
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
-  return NextResponse.json(mockResult);
+    // Datos simulados (MOCK) para que el frontend tenga qué mostrar
+    const mockResult: SignalAnalysisResponse = {
+      anxietyLevel: 'Alto', // Puedes cambiar esto a 'Bajo' para probar diferentes UI
+      anxietyScore: 82,
+      metrics: {
+        rmssd: 38,
+        pnn50: 11,
+        meanRr: 780,
+        sdrr: 58,
+        lfHfRatio: '2.1',
+      },
+    };
+
+    return NextResponse.json(mockResult);
+
+  } catch (error) {
+    console.error("Error en API Route:", error);
+    return NextResponse.json(
+      { error: 'Error procesando la solicitud' },
+      { status: 500 }
+    );
+  }
 }

@@ -39,7 +39,7 @@ export default function LandingPage() {
                 variant="outline"
                 className="font-semibold"
               >
-                <Link href="#">Saber Más</Link>
+                <Link href="https://github.com/Lucero-Munive/GRUPO-06-ISB-2025-II" target="_blank">Saber Más</Link>
               </Button>
             </div>
           </div>

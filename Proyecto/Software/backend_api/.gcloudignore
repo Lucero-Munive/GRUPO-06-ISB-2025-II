@@ -1,4 +1,14 @@
+# .gcloudignore
+# Esto le dice a Google qué NO subir al container.
+# Todo lo que NO esté aquí, se subirá (incluyendo tu modelo y tu llave).
+
 .git
-__pycache__
-.DS_Store
+.gitignore
+__pycache__/
 venv/
+*.pyc
+.DS_Store
+README.md
+
+# Nota que NO ponemos *.keras ni serviceAccountKey.json aquí.
+# ¡Así aseguramos que se suban a la nube aunque no estén en GitHub!

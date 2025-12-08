@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 
+// --- CLASE BIQUAD (MATEMÁTICA PURA) ---
 class Biquad {
 public:
     double b0, b1, b2, a1, a2;
@@ -13,19 +14,7 @@ public:
         z2 = 0.0;
     }
 
-    // Calcula la salida del filtro muestra a muestra
-    double step(double x) {
-        double w = x - a1 * z1 - a2 * z2;
-        double y = b0 * w + b1 * z1 + b2 * z2;
-        z1 = w;
-        z2 = z1; // z2 guarda el estado anterior
-        // Corrección z-delay para estabilidad
-        z2 = z1; 
-        z1 = w;
-        return y;
-    }
-    
-    // Versión correcta form II transposed
+    // Algoritmo "Direct Form II Transposed" (Estable)
     double process(double in) {
         double out = in * b0 + z1;
         z1 = in * b1 + z2 - out * a1;
@@ -34,34 +23,58 @@ public:
     }
 };
 
+// --- CLASE SMOOTHER (NUEVO: PARA QUITAR LO BORROSO) ---
+// Promedia los últimos N valores para eliminar ruido aleatorio
+#define MA_SIZE 5 // Tamaño de ventana (5 muestras es ideal para 700Hz)
+
+class MovingAverage {
+private:
+    double buffer[MA_SIZE];
+    int index;
+    double sum;
+public:
+    MovingAverage() {
+        index = 0;
+        sum = 0.0;
+        for(int i=0; i<MA_SIZE; i++) buffer[i] = 0.0;
+    }
+
+    double process(double input) {
+        sum -= buffer[index];       // Restar el valor más viejo
+        buffer[index] = input;      // Guardar nuevo valor
+        sum += input;               // Sumar nuevo valor
+        index = (index + 1) % MA_SIZE;
+        return sum / MA_SIZE;       // Devolver promedio
+    }
+};
+
+// --- PROCESADOR PRINCIPAL ---
 class EcgProcessor {
 private:
     Biquad notchFilter;
     Biquad lowPass;
     Biquad highPass;
+    MovingAverage smoother; // <--- AGREGADO
 
 public:
     void begin() {
-        // Coeficientes calculados para Sampling Rate = 700 Hz
+        // Coeficientes para Sampling Rate = 700 Hz
         
-        // 1. NOTCH a 60Hz (Elimina ruido eléctrico)
-        // Q = 4.0
+        // 1. NOTCH a 60Hz (Elimina ruido de enchufe)
         notchFilter.b0 = 0.933267;
         notchFilter.b1 = -1.603639;
         notchFilter.b2 = 0.933267;
         notchFilter.a1 = -1.603639;
         notchFilter.a2 = 0.866534;
 
-        // 2. LOW PASS a 40Hz (Elimina ruido muscular/EMG)
-        // Butterworth 2nd order
+        // 2. LOW PASS a 40Hz (Elimina ruido muscular)
         lowPass.b0 = 0.020083;
         lowPass.b1 = 0.040167;
         lowPass.b2 = 0.020083;
         lowPass.a1 = -1.561018;
         lowPass.a2 = 0.641352;
 
-        // 3. HIGH PASS a 0.5Hz (Elimina deriva DC/Respiración)
-        // Butterworth 2nd order
+        // 3. HIGH PASS a 0.5Hz (Elimina deriva DC / respiración)
         highPass.b0 = 0.996787;
         highPass.b1 = -1.993574;
         highPass.b2 = 0.996787;
@@ -70,11 +83,15 @@ public:
     }
 
     double apply(double input) {
-        // Cascada de filtros: Entrada -> Notch -> LowPass -> HighPass -> Salida
-        double step1 = notchFilter.process(input);
-        double step2 = lowPass.process(step1);
-        double step3 = highPass.process(step2);
-        return step3;
+        // CADENA DE PROCESAMIENTO:
+        // Raw -> Notch -> LowPass -> HighPass -> SMOOTHER -> Salida
+        
+        double s1 = notchFilter.process(input);
+        double s2 = lowPass.process(s1);
+        double s3 = highPass.process(s2);
+        
+        // El paso final de "magia" para quitar lo borroso:
+        return smoother.process(s3);
     }
 };
 

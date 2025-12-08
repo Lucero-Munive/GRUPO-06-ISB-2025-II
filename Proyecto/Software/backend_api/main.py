@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-# from emotion_engine import EmotionDetector # <-- LIMINADO
+from emotion_engine import EmotionDetector
 from pydantic import BaseModel
 import numpy as np
 from scipy.signal import resample
@@ -13,6 +13,8 @@ import json
 
 # --- 1. CONFIGURACIÓN ---
 MODEL_PATH = "abl_dl_ecg_only.keras"
+FACE_MODEL_PATH = "model.h5"
+FACE_CASCADE_PATH = "haarcascade_frontalface_default.xml"
 KEY_PATH = "serviceAccountKey.json"
 TARGET_SIZE = 15360 
 
@@ -64,23 +66,30 @@ else:
 
 # --- 4. CARGAR IA ---
 ai_ecg = ModelHandler(MODEL_PATH)
-# ai_face = None # Ya no es necesario
+ai_face = EmotionDetector(FACE_MODEL_PATH, FACE_CASCADE_PATH)
 ecg_classes = ['Baseline', 'Stress', 'Amusement', 'Meditation']
 
 # --- ESQUEMAS DE DATOS ---
 class ECGRequest(BaseModel):
     data: list[float]
     fs: int = 233
+    userId: str = "anonymous"
 
 class StreamPacket(BaseModel):
     val: float
     
-# class ImageRequest(BaseModel): # <--- ELIMINADO
+class ImageRequest(BaseModel):
+    image: str # Base64
+    userId: str = "anonymous"
 
 @app.on_event("startup")
 def startup_event():
     print("[INIT] Iniciando Motor de ECG...")
     ai_ecg.load()
+    print("[INIT] Iniciando Motor de Emociones...")
+    # La carga de pesos ya se hace en __init__ de EmotionDetector, pero validamos
+    if ai_face.model:
+        print("[INFO] IA Facial lista.")
 
 # --- ENDPOINTS ---
 
@@ -128,7 +137,7 @@ def predict_stress(payload: ECGRequest):
         cloud_id = None
         if db is not None:
             try:
-                target_user_uid = "JHkcAbjKAQVarzvOqqna3AjwK5J2" 
+                target_user_uid = payload.userId
                 doc_ref = db.collection('sessions').document()
                 doc_data = {
                     'timestamp': datetime.now(),
@@ -157,8 +166,43 @@ def predict_stress(payload: ECGRequest):
         print(f"[API ERROR ECG] {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# D. Predicción Emoción Facial (ENDPOINT ELIMINADO PARA ARRANQUE)
-# El endpoint ya no existe para evitar el crash.
+# D. Predicción Emoción Facial
+@app.post("/predict/emotion")
+def predict_emotion(payload: ImageRequest):
+    if ai_face is None:
+        raise HTTPException(status_code=503, detail="IA Facial no disponible")
+
+    try:
+        emotion, conf = ai_face.predict_from_base64(payload.image)
+
+        if emotion is None:
+             return {"status": "no_face", "message": "No se detectó rostro"}
+
+        # Guardar en Firebase
+        cloud_id = None
+        if db is not None:
+             try:
+                doc_ref = db.collection('emotion_logs').document()
+                doc_ref.set({
+                    'timestamp': datetime.now(),
+                    'emotion': emotion,
+                    'confidence': conf,
+                    'userId': payload.userId
+                })
+                cloud_id = doc_ref.id
+             except Exception as e:
+                 print(f"Error Firebase: {e}")
+
+        return {
+            "status": "success",
+            "emotion": emotion,
+            "confidence": int(conf * 100),
+            "cloud_id": cloud_id
+        }
+
+    except Exception as e:
+        print(f"Error API Emotion: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/")
 def health_check():
@@ -166,5 +210,5 @@ def health_check():
         "status": "online", 
         "firebase": db is not None, 
         "ai_ecg": ai_ecg.model is not None,
-        "ai_face_status": "disabled" # Indicamos que la visión artificial está apagada.
+        "ai_face_status": "active" if ai_face else "error"
     }
