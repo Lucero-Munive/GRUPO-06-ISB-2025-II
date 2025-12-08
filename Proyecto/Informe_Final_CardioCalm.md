@@ -342,6 +342,8 @@ El sistema se encuentra totalmente operativo y desplegado en producción.
 
 | Integrante | Bio |
 | :--- | :--- |
-| **Alejandro Alvaro Untiveros Parra** | Estudiante del 9.º ciclo de Ingeniería Biomédica (PUCP-UPCH). Especializado en procesamiento de señales biomédicas, Inteligencia Artificial y Cloud Computing. Lideró el desarrollo de la arquitectura Deep Learning, el diseño del firmware IoT y el despliegue en la nube. |
-| **Lucero Camila Munive Huaranga** | Estudiante de Ingeniería Biomédica (PUCP-UPCH), con enfoque en Ingeniería Clínica y gestión de tecnologías sanitarias. Lideró la validación fisiológica, el diseño del protocolo experimental y el análisis estadístico de los resultados. |
-| **Fiorella Yasira Pérez Arévalo** | Estudiante de Ingeniería Biomédica (PUCP-UPCH), especializada en normativa médica y análisis de datos. Lideró el análisis exploratorio de datos (EDA), la documentación técnica y la validación de usabilidad del sistema. |
+| <img src="Imagenes_informe/alvaro.jpg" width="300"> |**Alejandro Alvaro Untiveros Parra** <br><a href="mailto:alejandro.untiveros@upch.pe" style="color:blue; text-decoration:underline;">alejandro.untiveros@upch.pe</a><br>Estudiante del 9.º ciclo de Ingeniería Biomédica (PUCP-UPCH). Especializado en procesamiento de señales biomédicas, Inteligencia Artificial y Cloud Computing. Lideró el desarrollo de la arquitectura Deep Learning, el diseño del firmware IoT y el despliegue en la nube. |
+| <img src="Imagenes_informe/Lucero.jpeg" width="300">| **Lucero Camila Munive Huaranga**<br><a href="mailto:lucero.munive@upch.pe" style="color:blue; text-decoration:underline;">lucero.munive@upch.pe</a><br> Estudiante de Ingeniería Biomédica (PUCP-UPCH), con enfoque en Ingeniería Clínica y gestión de tecnologías sanitarias. Lideró la validación fisiológica, el diseño del protocolo experimental y el análisis estadístico de los resultados. |
+| <img src="Imagenes_informe/fiorella.png" width="300"> | **Fiorella Yasira Pérez Arévalo**<br><a href="mailto:fiorella.perez@upch.pe" style="color:blue; text-decoration:underline;">fiorella.perez@upch.pe</a><br> Estudiante de Ingeniería Biomédica (PUCP-UPCH), especializada en normativa médica y análisis de datos. Lideró el análisis exploratorio de datos (EDA), la documentación técnica y la validación de usabilidad del sistema. |
+
+

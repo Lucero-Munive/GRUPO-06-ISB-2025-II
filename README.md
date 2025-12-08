@@ -14,8 +14,8 @@ Accede rápidamente a los contenidos principales del curso y del proyecto final:
 
 - 📂 **[Laboratorios](./Laboratorios)**: Laboratorios desarrollados a lo largo del curso enfocados en la adquisición y procesamiento de diferentes señales fisiológicas.
 - 🫀 **[Proyecto: CardioCalm AI](./Proyecto)**: Carpeta principal del proyecto final.
-    - 📄 **[Informe Final](./Proyecto/Informe_Final_CardioCalm.md)**: Documento completo con la investigación, metodología, resultados y conclusiones.
-    - 📄 **[Poster](./Proyecto/POSTER ISB.png)**: Poster resumen del proyecto.
+    - 📄 **[Informe Final](./Proyecto/Informe_Final_CardioCalm.md)**: Informe completo con la investigación, metodología, resultados y conclusiones.
+    - 📄 **[Poster](./Proyecto/POSTER_ISB.png)**: Poster resumen del proyecto.
     - 🛠️ **[Hardware](./Proyecto/Hardware/Readme.md)**: Documentación técnica del dispositivo wearable, esquemáticos y firmware.
     - 💻 **[Software](./Proyecto/Software/Readme.md)**: Código fuente del Frontend, Backend, Datasets y entrenamiento de modelos IA.
     
