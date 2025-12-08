@@ -121,19 +121,9 @@ El componente físico del sistema es un dispositivo wearable de bajo costo dise�
 El sistema sigue una arquitectura moderna, escalable y *serverless*, diseñada para soportar alta concurrencia y reducir latencia.
 
 **Diagrama de Arquitectura:**
-```mermaid
-graph LR
-    User[Usuario (Wearable)] -- BLE --> Frontend[WebApp (Next.js)]
-    Frontend -- HTTP/JSON --> API[Backend API (FastAPI)]
-    API -- Inferencia --> Model[InceptionTime Model]
-    API -- Reads/Writes --> DB[(Firebase Firestore)]
-    Frontend -- Hosting --> Firebase[Firebase Hosting]
-    API -- Deploy --> CloudRun[Google Cloud Run]
-```
-
+![Arquitectura de Software](Imagenes_informe/Arquitectura_Software.png)
 > **Figura 5.2.** Diagrama esquemático de la arquitectura de software desplegada en Google Cloud Platform.
-> ![Arquitectura de Software](Imagenes_informe/Arquitectura_Software.png)
-> *(Espacio reservado para diagrama detallado)*
+
 
 1.  **Frontend (PWA)**: Desarrollada en **Next.js** y desplegada en **Firebase Hosting**. Su característica diferencial es el uso de la **Web Bluetooth API**, permitiendo conectar el dispositivo ESP32 directamente al navegador (Chrome/Edge) sin requerir la instalación de aplicaciones nativas, facilitando el acceso universal.
 2.  **Backend de IA**: API REST desarrollada en **FastAPI**, containerizada con **Docker** y orquestada en **Google Cloud Run**. Este servicio recibe los datos crudos, ejecuta el modelo de Deep Learning (InceptionTime) y devuelve la predicción de ansiedad en milisegundos.
